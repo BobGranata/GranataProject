@@ -1,0 +1,313 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.bobgranata.questionary.FirstStepActivity"
+    android:clickable="true">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollFirstsStep"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/tvFirstStep"
+                    android:id="@+id/tvFirstStep"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignLeft="@+id/tvSecondStep"
+                    android:layout_alignStart="@+id/tvSecondStep"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/tvAttentionGetGps"
+                    android:id="@+id/textView"
+                    android:layout_below="@+id/tvSecondStep"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center_horizontal" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/btnFirstStepGetGPS"
+                    android:id="@+id/btnFirstStepGetGPS"
+                    android:onClick="onClickFirstStepGetGPS"
+                    android:layout_below="@+id/textView"
+                    android:layout_centerHorizontal="true"
+                    android:enabled="true"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/button_background"
+                    android:textColor="@drawable/text_color"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/tvLongFirstStep"
+                        android:id="@+id/tvLongFirstStep"
+                        android:layout_below="@+id/btnFirstStepGetGPS"
+                        android:layout_alignRight="@+id/tvLatFirstStep"
+                        android:layout_alignEnd="@+id/tvLatFirstStep" />
+
+                    <EditText
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edLongFirstStep"
+                        android:inputType="numberDecimal"
+                        android:layout_below="@+id/tvLongFirstStep"
+                        android:layout_centerHorizontal="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/tvLatFirstStep"
+                        android:id="@+id/tvLatFirstStep"
+                        android:layout_below="@+id/edLongFirstStep"
+                        android:layout_centerHorizontal="true" />
+
+                    <EditText
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etLatFirstStep"
+                        android:inputType="numberDecimal"
+                        android:layout_below="@+id/tvLatFirstStep"
+                        android:layout_centerHorizontal="true"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/clientAddressTypeStreet"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/tvNameNet" />
+
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinClientAddressTypeStreet"
+                    android:entries="@array/spinClientAddressTypeStreet"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/clientAddressStreet"
+                    android:id="@+id/tvFSClientAddressStreet"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/etFSClientAddressStreet" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/clientAddressHouse"
+                    android:id="@+id/tvFSClientAddressHouse"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/etFSClientAddressHouse" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/clientAddressCorps"
+                    android:id="@+id/tvFSClientAddressCorps"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/etFSClientAddressCorps" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/clientAddressStruct"
+                    android:id="@+id/tvFSClientAddressStruct"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/etFSClientAddressStruct" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/clientAddressComment"
+                    android:id="@+id/tvFSClientAddressComment"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/etFSClientAddressComment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/tvSecondStep"
+                    android:id="@+id/tvSecondStep"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tvCheckSavePhoto"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/etGetPhoto"
+                    android:id="@+id/btnFirstStepGetPhoto"
+                    android:onClick="onClickGetPhoto"
+                    android:layout_below="@+id/tvFirstStep"
+                    android:layout_centerHorizontal="true"
+                    android:enabled="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_background"
+                    android:textColor="@drawable/text_color"/>
+                <!--TODO -->
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:editable="false"
+                    android:id="@+id/etPhotoFileName"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/tvCheckSavePhoto"
+                    android:layout_below="@+id/btnFirstStepGetPhoto"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/tvThirdStep"
+                    android:text="@string/tvThirdStep"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvTitleStoreName"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/tvTitleStoreName" />
+
+                <!--#fff-->
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/autoCompleteStoreName" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="50dp">
+
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="@string/btnForward"
+                        android:id="@+id/btnForward"
+                        android:onClick="onClickForward"
+                        android:enabled="false"
+                        android:background="@drawable/button_background"
+                        android:textColor="@drawable/text_color"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="@string/btnBackward"
+                        android:id="@+id/btnBackward"
+                        android:onClick="onClickBackward"
+                        android:background="@drawable/button_background"
+                        android:textColor="@drawable/text_color"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

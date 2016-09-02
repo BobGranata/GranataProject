@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bobgranata.questionary.StartMenuActivity">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/back_start_menu_lm"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="@string/FullQuest"
+        android:id="@+id/btnFullQuest"
+        android:onClick="onClickFullQuest"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="169dp"
+        android:textSize="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@drawable/text_color"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="@string/btnSetting"
+        android:id="@+id/btnSetting"
+        android:onClick="onClickSetting"
+        android:layout_below="@+id/btnFullQuest"
+        android:layout_alignLeft="@+id/btnFullQuest"
+        android:layout_alignStart="@+id/btnFullQuest"
+        android:layout_alignRight="@+id/btnFullQuest"
+        android:layout_alignEnd="@+id/btnFullQuest"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@drawable/text_color"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/tvProgramVersion"
+        android:id="@+id/textView2"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

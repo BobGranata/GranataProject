@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2"
+        android:layout_margin="7dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/tvNameOnSign"
+                android:id="@+id/tvNameOnSign"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etNameOnSign"
+                android:maxLength="200"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/occasionCons"
+                android:id="@+id/tvOccasionCons"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinOccasionCons"
+                android:entries="@array/spinOccasionCons"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/MarketPlace"
+                android:id="@+id/tvMarketArea"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinMarketArea"
+                android:entries="@array/spinMarketArea"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/NumberBanksRetailOutlets"
+                android:id="@+id/tvNumberBanksRetailOutlets"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etNumberBanksRetailOutlets"
+                android:maxLength="3"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/typeService"
+                android:id="@+id/tvTypeService"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinTypeService"
+                android:entries="@array/spinTypeService"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/typeChannel"
+                android:id="@+id/tvTypeChannel"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinTypeChannel"
+                />
+            <!--android:entries="@array/spinTypeChannel"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/SpecSalePoint"
+                android:id="@+id/tvSpecSalePoint"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinSpecSalePoint"
+                android:entries="@array/spinSpecSalePoint"/>
+
+            <!--============================================================================-->
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbPresenceCarbonDrinks"
+                android:text="@string/PresenceCarbonDrinks"
+                android:layout_marginTop="15dp"/>
+            <!--android:text="@string/YesOrNot"-->
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbPresenceColdTea"
+                android:text="@string/PresenceColdTea"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbHaveBottledWater"
+                android:text="@string/HaveBottledWater"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbAvailabilityPower"
+                android:text="@string/AvailabilityPower"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AvailabilityKvass"
+                android:id="@+id/cbAvailabilityKvass"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AvailabilityJuices"
+                android:id="@+id/cbAvailabilityJuices"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/PresenceBeer"
+                android:id="@+id/cbPresenceBeer"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AlcoholSpiritsWine"
+                android:id="@+id/cbAlcoholSpiritsWine"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/HaveDrinksCocaCompany"
+                android:id="@+id/cbHaveDrinksCocaCompany"
+                android:onClick="onClickHaveDrinksCoca"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AvailJuicesCocaCompany"
+                android:id="@+id/cbAvailJuicesCocaCompany"
+                android:onClick="onClickJuicesCocaCompany"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/tvHaveDrinksCocaChecker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffd33a26"
+                android:padding="5dp"
+                android:text="@string/tvHaveDrinksCocaChecker"
+                android:textColor="#fff" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/HaveDrinksCompanyPepsi"
+                android:id="@+id/cbHaveDrinksCompanyPepsi"
+                android:layout_marginTop="15dp"/>
+
+            <!--TODO можно отсюда копировать-->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AvailabilityJuicesPepsiCo"
+                android:id="@+id/cbAvailabilityJuicesPepsiCo"
+                android:layout_marginTop="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/DedicShelvesForDrinks"
+                android:id="@+id/cbDedicShelvesForDrinks"
+                android:layout_marginTop="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PresAndNumRefrigBrandTradeCoca"
+                android:id="@+id/tvPresAndNumRefrigBrandTradeCoca"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPresAndNumRefrigBrandTradeCoca"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PresAndNumDoorsRefrigBrandTradeCoca"
+                android:id="@+id/tvPresAndNumDoorsRefrigBrandTradeCoca"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPresAndNumDoorsRefrigBrandTradeCoca"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PresAndNumBrandRefrigPepsiCo"
+                android:id="@+id/tvPresAndNumBrandRefrigPepsiCo"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPresAndNumBrandRefrigPepsiCo"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PresAndNumDoorsBrandRefrigPepsiCo"
+                android:id="@+id/tvPresAndNumDoorsBrandRefrigPepsiCo"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPresAndNumDoorsBrandRefrigPepsiCo"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PresAndNumOtherRefrigAndBeverages"
+                android:id="@+id/tvPresAndNumOtherRefrigAndBeverages"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPresAndNumOtherRefrigAndBeverages"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PresAndQuantiBeerCoolers"
+                android:id="@+id/tvPresAndQuantiBeerCoolers"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPresAndQuantiBeerCoolers"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AddPointsSaleWarmEquipCoca"
+                android:id="@+id/cbAddPointsSaleWarmEquipCoca"
+                android:layout_marginTop="17dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AddPointsSaleWarmEquipPepsiCo"
+                android:id="@+id/cbAddPointsSaleWarmEquipPepsiCo"
+                android:layout_marginTop="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/NumbPOSCoolCoca"
+                android:id="@+id/tvNumbPOSCoolCoca"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etNumbPOSCoolCoca"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/NumbPOSCoolOther"
+                android:id="@+id/tvNumbPOSCoolOther"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etNumbPOSCoolOther"
+                android:hint="0"
+                android:maxLength="2"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/AverageVisitorsPerDay"
+                android:id="@+id/tvAverageVisitorsPerDay"
+                android:layout_marginTop="17dp"
+                android:textStyle="bold"
+                android:textColor="#ff000000"
+                android:textIsSelectable="false" />
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinAverageVisitorsPerDay"
+                android:entries="@array/spinAverageVisitorsPerDay"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/NameConnectFace"
+                android:id="@+id/tvNameConnectFace"
+                android:textStyle="bold"
+                android:textColor="#ff000000" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etNameConnectFace"
+                android:maxLength="100"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PhoneConnectFace"
+                android:id="@+id/tvPhoneConnectFace"
+                android:layout_marginTop="17dp"
+                android:textStyle="bold"
+                android:textColor="#ff000000" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPhoneConnectFace"
+                android:maxLength="50"
+                android:inputType="phone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/WhoBringsProdCoca"
+                android:id="@+id/tvWhoBringsProdCoca"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinWhoBringsProdCoca"
+                android:entries="@array/spinWhoBringsProdCoca"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/tvLegalEntity"
+                android:id="@+id/tvLegalEntity"
+                android:layout_marginTop="17dp"
+                android:textStyle="bold"
+                android:textColor="#ff000000" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="200"
+                android:inputType="text"
+                android:id="@+id/etLegalEntity" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/tvINN"
+                android:id="@+id/tvINN"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etINN"
+                android:maxLength="12"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tvInnChecker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/password"
+                android:background="#ffd33a26"
+                android:padding="5dp"
+                android:text="* Не введён"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/tvMethodForProducingInn"
+                android:id="@+id/tvMethodForProducingInn"
+                android:layout_marginTop="17dp"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinMethodForProducingInn"
+                android:entries="@array/spinMethodForProducingInn"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/VendingMachine"
+                android:id="@+id/cbVendingMachine"
+                android:layout_marginTop="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/BrendVendingMachine"
+                android:id="@+id/tvBrendVendingMachine"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etBrendVendingMachine"
+                android:maxLength="100"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/StatementVendingMachine"
+                android:id="@+id/tvStatementVendingMachine"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etStatementVendingMachine"
+                android:maxLength="100"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/PhoneStateVendMachine"
+                android:id="@+id/tvPhoneStateVendMachine"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPhoneStateVendMachine"
+                android:maxLength="100"
+                android:inputType="phone" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/VendMachineCoca"
+                android:id="@+id/cbVendMachineCoca"
+                android:layout_marginTop="17dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/VendMachinePepsi"
+                android:id="@+id/cbVendMachinePepsi"
+                android:layout_marginTop="17dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/VendMachineOther"
+                android:id="@+id/cbVendMachineOther"
+                android:layout_marginTop="17dp"/>
+            <!--=========================================================================================-->
+            <!--=========================================================================================-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/CommonComment"
+                android:id="@+id/tvCommonComment"
+                android:layout_marginTop="17dp"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etCommonComment"
+                android:maxLength="200"
+                android:inputType="text" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cbNotCalc"
+                android:id="@+id/cbNotCalc"
+                android:layout_marginTop="17dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="@string/btnSaveAndSend"
+                android:id="@+id/btnSaveAndSend"
+                android:onClick="onClickSaveAndSend"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_color"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="@string/saveButton"
+                android:id="@+id/btnSave"
+                android:onClick="onClickSave"
+                android:visibility="invisible"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_color"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/resetButton"
+                android:id="@+id/btnReset"
+                android:layout_marginTop="25dp"
+                android:onClick="onClickReset"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_color"/>
+            <!--android:visibility="invisible"-->
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

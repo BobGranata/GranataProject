@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Questionary</string>
+    <string name="tvProgramVersion">v1.1.9</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="MainTitle">Полный опрос</string>
+    <string name="juridicalPerson">Юридическое лицо (название с указанием орг-правовой формы)</string>
+    <string name="inn">ИНН</string>
+    <string name="nameOnSign">Название на вывеске</string>
+    <string name="district">АОкруг</string>
+    <string name="city">Город</string>
+    <string name="saveButton">Сохранить</string>
+    <string name="resetButton">Очистить</string>
+    <string name="clientAddressStreet">Адрес клиента: улица</string>
+    <string name="clientAddressHouse">Адрес клиента: дом</string>
+    <string name="clientAddressCorps">Адрес клиента: корпус</string>
+    <string name="clientAddressStruct">Адрес клиента: строение</string>
+    <string name="clientAddressComment">Адрес клиента: комментарий</string>
+    <string name="GPS">GPS</string>
+    <string name="getGPS">Получить GPS координаты</string>
+    <string name="typeChannel">Тип (канал)</string>
+    <string name="occasionCons">Повод потребления</string>
+    <string name="typeService">Тип обслуживания</string>
+    <string name="tvViewTestRes">Ololol</string>
+    <string name="tvLegalEntity">Юридическое лицо (название с указанием орг-правовой формы)</string>
+    <string name="tvINN">ИНН</string>
+    <string name="tvNameOnSign">Название на вывеске</string>
+    <string name="tvTitleQuest">EDS Полный опрос</string>
+    <string name="tvADistrict">АОкруг</string>
+    <string name="tvCity">Город</string>
+    <string name="NumberBanksRetailOutlets">Количество касс для розничных точек</string>
+    <string name="PresenceCarbonDrinks">Наличие газированных напитков</string>
+    <string name="PresenceColdTea">Наличие холодного чая</string>
+    <string name="YesOrNot">Да/Нет</string>
+    <string name="HaveBottledWater">Наличие бутилированной воды</string>
+    <string name="AvailabilityPower">Наличие энергетиков</string>
+    <string name="AvailabilityKvass">Наличие кваса</string>
+    <string name="AvailabilityJuices">Наличие соков</string>
+    <string name="PresenceBeer">Наличие пива</string>
+    <string name="AlcoholSpiritsWine">Наличие алкоголя (крепкие напитки, вино)</string>
+    <string name="MarketPlace">Торговая площадь</string>
+    <string name="SpecSalePoint">Специализация розничной точки (если есть)</string>
+    <string name="NameConnectFace">Имя контактного лица</string>
+    <string name="PhoneConnectFace">Телефон контактного лица</string>
+    <string name="AverageVisitorsPerDay">Среднее количество посетителей за день</string>
+    <string name="HaveDrinksCocaCompany">Наличие напитков компании Кока-Кола</string>
+    <string name="AvailJuicesCocaCompany">Наличие соков компании Кока-Кола</string>
+    <string name="HaveDrinksCompanyPepsi">Наличие напитков компании ПепсиКо</string>
+    <string name="AvailabilityJuicesPepsiCo">Наличие соков компании ПепсиКо</string>
+    <string name="PresAndNumRefrigBrandTradeCoca">Наличие и количество холодильников брендированных марками компании Кока-Кола</string>
+    <string name="PresAndNumDoorsRefrigBrandTradeCoca">Наличие и количество дверей холодильников брендированных марками компании Кока-Кола</string>
+    <string name="PresAndNumBrandRefrigPepsiCo">Наличие и количество брендированных холодильников ПепсиКо (другими марками ПепсиКо)</string>
+    <string name="PresAndNumDoorsBrandRefrigPepsiCo">Наличие и количество дверей брендированного холодильника ПепсиКо (другими марками ПепсиКо)</string>
+    <string name="PresAndNumOtherRefrigAndBeverages">Наличие и количество прочих холодильников б\\а напитков (небрендированный или брендированный другим производителем безалкогольных напитков)</string>
+    <string name="PresAndQuantiBeerCoolers">Наличие и количество пивных холодильников</string>
+    <string name="DedicShelvesForDrinks">Наличие в точке выделенной полки для напитков \\ соков (PBS)</string>
+    <string name="AddPointsSaleWarmEquipCoca">Наличие в точке дополнительных мест продаж `теплого` оборудования (палетты, полки и пр), брендированного Кока-Кола</string>
+    <string name="AddPointsSaleWarmEquipPepsiCo">Наличие в точке дополнительных мест продаж `теплого` оборудования (палетты, полки и пр), брендированного ПепсиКо</string>
+    <string name="WhoBringsProdCoca">Кто привозит продукцию компании Кока-Кола</string>
+    <string name="SAPCode">SAP код точки в системе Кока-Кола</string>
+    <string name="NumbPOSCoolCoca">Количество кассовых кулеров компании Кока-Кола</string>
+    <string name="NumbPOSCoolOther">Количество кассовых кулеров других производителей</string>
+    <string name="VendingMachine">Наличие вендингового аппарата</string>
+    <string name="BrendVendingMachine">Бренд вендингового аппарата</string>
+    <string name="StatementVendingMachine">Оператор вендингового аппарата</string>
+    <string name="PhoneStateVendMachine">Контактный телефон оператора вендингового аппарата</string>
+    <string name="VendMachineCoca">Наличие в вендинговом аппарате продукции компании Кока-Кола</string>
+    <string name="VendMachinePepsi">Наличие в вендинговом аппарате продукции компании ПепсиКо</string>
+    <string name="VendMachineOther">Наличие в вендинговом аппарате прочих безалкогольных напитков (кроме продукции Кока-Кола и ПепсиКо)</string>
+    <string name="FullQuest">Начать опрос</string>
+    <string name="ShortQuest">Краткий опрос</string>
+
+    <string-array name="spinADistrict">
+        <item>выбрать из списка</item>
+        <item>ЦАО</item>
+        <item>ЗАО</item>
+        <item>СЗАО</item>
+        <item>САО</item>
+        <item>СВАО</item>
+        <item>ВАО</item>
+        <item>ЮВАО</item>
+        <item>ЮАО</item>
+        <item>ЮЗАО</item>
+    </string-array>
+
+    <string-array name="spinCity">
+        <item>выбрать из списка</item>
+        <item>Екатеринбург</item>
+        <item>Казань</item>
+        <item>Верхняя Пышма</item>
+        <item>Среднеуральск</item>
+        <item>Берёзовский</item>
+        <item>Новоберёзовский</item>
+        <item>Большой Исток</item>
+        <item>Арамиль</item>
+        <item>Патруши</item>
+    </string-array>
+
+    <!--
+        <item>Екатеринбург</item>
+        <item>Казань</item>
+        <item>Верхняя Пышма</item>
+        <item>Среднеуральск</item>
+        <item>Берёзовский</item>
+        <item>Новоберёзовский</item>
+        <item>Большой Исток</item>
+        <item>Арамиль</item>
+        <item>Патруши</item>
+
+        <item>Москва</item>
+        <item>Балашиха (вкл. Железнодорожный)</item>
+        <item>Дзержинский</item>
+        <item>Долгопрудный</item>
+        <item>Королёв (вкл. Юбилейный)</item>
+        <item>Котельники</item>
+        <item>Лыткарино</item>
+        <item>Реутов</item>
+        <item>Химки</item>
+        <item>Красногорск</item>
+        <item>Видное</item>
+        <item>Люберцы</item>
+        <item>Мытищи</item>
+        <item>Одинцово</item>
+    -->
+    <string-array name="spinTypeChannel">
+        <item>выбрать из списка</item>
+        <item>Гипермаркет</item>
+        <item>Мелкооптовый магазин Cash &amp; Carry</item>
+        <item>Супермаркет</item>
+        <item>Минимаркет</item>
+        <item>Дискаунтер</item>
+        <item>Традиционный магазин</item>
+        <item>Малый традиционный магазин / Павильон</item>
+        <item>Продовольственный киоск</item>
+        <item>Специализированный киоск</item>
+        <item>Специализированный алкогольный магазин</item>
+        <item>Специализированный продуктовый магазин</item>
+        <item>Ресторан быстрого обслуживания</item>
+        <item>Кафетерий</item>
+        <item>Столовая</item>
+        <item>Киоск быстрого питания</item>
+        <item>Ресторан полного сервиса</item>
+        <item>Кафе</item>
+        <item>Бар \ Паб \ Таверна \ Клуб</item>
+        <item>АЗС с магазином</item>
+        <item>АЗС без магазина</item>
+        <item>Кинотеатр</item>
+    </string-array>
+
+    <string-array name="spinTypeChannel_5">
+        <item>выбрать из списка</item>
+        <item>Гипермаркет</item>
+        <item>Мелкооптовый магазин Cash &amp; Carry</item>
+        <item>Кинотеатр</item>
+    </string-array>
+
+    <string-array name="spinTypeChannel_4">
+        <item>выбрать из списка</item>
+        <item>Мелкооптовый магазин Cash &amp; Carry</item>
+        <item>Супермаркет</item>
+        <item>Ресторан полного сервиса</item>
+        <item>Кафе</item>
+        <item>Бар \ Паб \ Таверна \ Клуб</item>
+        <item>Кинотеатр</item>
+    </string-array>
+
+    <string-array name="spinTypeChannel_3">
+        <item>выбрать из списка</item>
+        <item>Мелкооптовый магазин Cash &amp; Carry</item>
+        <item>Супермаркет</item>
+        <item>Минимаркет</item>
+        <item>Дискаунтер</item>
+        <item>Специализированный алкогольный магазин</item>
+        <item>Ресторан быстрого обслуживания</item>
+        <item>Столовая</item>
+        <item>Ресторан полного сервиса</item>
+        <item>Кафе</item>
+        <item>Бар \ Паб \ Таверна \ Клуб</item>
+        <item>Кинотеатр</item>
+    </string-array>
+
+    <string-array name="spinTypeChannel_2">
+        <item>выбрать из списка</item>
+        <item>Мелкооптовый магазин Cash &amp; Carry</item>
+        <item>Минимаркет</item>
+        <item>Традиционный магазин</item>
+        <item>Специализированный алкогольный магазин</item>
+        <item>Специализированный продуктовый магазин</item>
+        <item>Ресторан быстрого обслуживания</item>
+        <item>Кафетерий</item>
+        <item>Столовая</item>
+        <item>Ресторан полного сервиса</item>
+        <item>Кафе</item>
+        <item>Бар \ Паб \ Таверна \ Клуб</item>
+        <item>АЗС с магазином</item>
+        <item>АЗС без магазина</item>
+        <item>Кинотеатр</item>
+    </string-array>
+
+    <string-array name="spinTypeChannel_1">
+        <item>выбрать из списка</item>
+        <item>Мелкооптовый магазин Cash &amp; Carry</item>
+        <item>Минимаркет</item>
+        <item>Малый традиционный магазин / Павильон</item>
+        <item>Продовольственный киоск</item>
+        <item>Специализированный киоск</item>
+        <item>Специализированный алкогольный магазин</item>
+        <item>Специализированный продуктовый магазин</item>
+        <item>Ресторан быстрого обслуживания</item>
+        <item>Кафетерий</item>
+        <item>Столовая</item>
+        <item>Киоск быстрого питания</item>
+        <item>Ресторан полного сервиса</item>
+        <item>Кафе</item>
+        <item>Бар \ Паб \ Таверна \ Клуб</item>
+        <item>АЗС с магазином</item>
+        <item>АЗС без магазина</item>
+        <item>Кинотеатр</item>
+    </string-array>
+
+    <string-array name="spinOccasionCons">
+        <item>выбрать из списка</item>
+        <item>На работе - бизнес центры и офисы</item>
+        <item>На работе - производственные и складские территории</item>
+        <item>На работе - ГИБДД</item>
+        <item>На работе - медицинские учреждения</item>
+        <item>На работе - прочее</item>
+        <item>Образование - общеобразовательные школы</item>
+        <item>Образование - колледжи, институты, университеты</item>
+        <item>Образование - прочее</item>
+        <item>Транспорт - вокзалы и жд станции</item>
+        <item>Транспорт - аэропорты</item>
+        <item>Транспорт - автовокзалы</item>
+        <item>Тренспорт - прочее</item>
+        <item>Гостиницы, Отели, Мотели</item>
+        <item>Прочее</item>
+    </string-array>
+    <string-array name="spinTypeService">
+        <item>выбрать из списка</item>
+        <item>Cамообслуживание</item>
+        <item>Обслуживание через прилавок</item>
+        <item>Обслуживание через окно</item>
+        <item>Смешанное обслуживание</item>
+        <item>Обслуживание официантами</item>
+    </string-array>
+    <string-array name="spinMarketArea">
+        <item>выбрать из списка</item>
+        <item>&lt;50</item>
+        <item>50 - 150</item>
+        <item>150 - 1500</item>
+        <item>1500 - 5000</item>
+        <item>5000 +</item>
+    </string-array>
+    <string-array name="spinSpecSalePoint">
+        <item>неспециализированная</item>
+        <item>хлебо-булочная</item>
+        <item>кондитерская</item>
+        <item>молочная</item>
+        <item>мясная гастрономия</item>
+        <item>мясо-рыба</item>
+        <item>овощи-фрукты</item>
+        <item>алкогольные напитки</item>
+        <item>разливное пиво</item>
+        <item>табак</item>
+        <item>мороженое</item>
+        <item>пресса</item>
+        <item>другое</item>
+        <item>кофе с собой</item>
+    </string-array>
+    <string-array name="spinAverageVisitorsPerDay">
+        <item>выбрать из списка</item>
+        <item>&lt;50</item>
+        <item>50-150</item>
+        <item>150 - 400</item>
+        <item>400 - 750</item>
+        <item>750 - 1200</item>
+        <item>1200 - 2500</item>
+        <item>2500 - 5000</item>
+        <item>5000 +</item>
+    </string-array>
+    <string-array name="spinWhoBringsProdCoca">
+        <item>выбрать из списка</item>
+        <item>привозит производитель</item>
+        <item>привозит дистрибьютор</item>
+        <item>покупаю в МЕТРО</item>
+        <item>покупаю у оптовиков</item>
+        <item>другое</item>
+    </string-array>
+
+    <string-array name="spinNameNet">
+        <item>выбрать из списка</item>
+        <item>Перекресток</item>
+        <item>Пятерочка</item>
+        <item>Карусель</item>
+        <item>Перекресток Экспресс</item>
+        <item>Атак</item>
+        <item>Ашан</item>
+        <item>Билла</item>
+        <item>Мегамарт</item>
+        <item>Дикси</item>
+        <item>Виктория</item>
+        <item>Бристоль</item>
+        <item>Лента</item>
+        <item>Магнит Дискаунтер</item>
+        <item>Магнит Гипермаркет</item>
+        <item>Метро</item>
+        <item>Монетка</item>
+        <item>ГиперГлобус</item>
+        <item>Верный</item>
+        <item>Окей</item>
+        <item>Зельгросс</item>
+        <item>7 Континент</item>
+        <item>Наш</item>
+        <item>Киномакс</item>
+        <item>5 звезд</item>
+        <item>Киноплекс</item>
+        <item>Киностар</item>
+        <item>Луксор</item>
+        <item>Каро фильм</item>
+        <item>Кофетун</item>
+        <item>Пицца Хат</item>
+        <item>Шелл</item>
+        <item>Роснефть</item>
+        <item>БП Коннект / ТНК-БП</item>
+        <item>Лукойл</item>
+        <item>Газпромнефть</item>
+        <item>МакДональдс</item>
+        <item>Циннабон</item>
+        <item>Кебаб-Хаус</item>
+        <item>Теремок</item>
+        <item>Баскин Роббинс</item>
+        <item>Домино Пицца</item>
+        <item>Крошка Картошка</item>
+        <item>Айсберри</item>
+        <item>Стардогс</item>
+        <item>Иль Патио</item>
+        <item>Планета Суши</item>
+        <item>TGI Fridays</item>
+        <item>Американский Бар Гриль</item>
+        <item>Шикари</item>
+        <item>Коста Кофе</item>
+    </string-array>
+
+    <string-array name="spinMethodForProducingInn">
+        <item>Информацию не предоставили</item>
+        <item>На доске информации</item>
+        <item>На вывеске/двери</item>
+        <item>На кассовом чеке</item>
+        <item>Со слов продавца</item>
+        <item>Другое</item>
+    </string-array>
+
+    <string-array name="spinClientAddressTypeStreet">
+        <item>ул.</item>
+        <item>пр-т</item>
+        <item>ш.</item>
+        <item>пер.</item>
+        <item>пр.</item>
+        <item>наб.</item>
+        <item>б-р</item>
+        <item>алл.</item>
+    </string-array>
+
+    <!--
+    <string-array name="">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    -->
+    <string name="title_activity_short_quest">ShortQuestActivity</string>
+    <string name="tvTitleShortQuest">EDS Опрос</string>
+    <string name="btnSaveAndSend">Сохранить и отправить</string>
+    <string name="title_activity_first_step">FirstStepActivity</string>
+    <string name="btnFirstStepGetGPS">Получить координаты GPS</string>
+    <string name="tvLongFirstStep">Долгота</string>
+    <string name="tvLatFirstStep">Широта</string>
+    <string name="etGetPhoto">Сделать фотографию</string>
+    <string name="tvFirstStep">1.Шаг первый</string>
+    <string name="btnForward">Продолжить</string>
+    <string name="tvSecondStep">2.Шаг второй</string>
+    <string name="tvAttentionGetGps">Внимание! Получение GPS координат может занять время от нескольких секунд до нескольких минут.</string>
+    <string name="btnSetting">Настройки</string>
+    <string name="settingsQuest">Настройки</string>
+    <string name="tvSettingEmail">Email на который будут отправлятся данные</string>
+    <string name="tvFio">ФИО сотрудника</string>
+    <!--<string name="title_activity_start_menu">QuestionaryApp</string>-->
+    <string name="tvTerNum">Номер территории</string>
+    <string name="tvNameNet">Название сети</string>
+    <string name="NumberBanks">Количество касс</string>
+    <string name="tvThirdStep">3.Шаг третий</string>
+    <string name="tvTitleStoreName">Введите название магазина</string>
+    <string name="tvMethodForProducingInn">Способ получения ИНН</string>
+    <string name="tvHaveDrinksCocaChecker">Требуется выбрать постовщика продукции Coca-cola</string>
+    <string name="cbNotCalc">Анкету не обрабатывать</string>
+    <string name="CommonComment">Примечания</string>
+    <string name="clientAddressTypeStreet">Тип улицы</string>
+    <string name="btnBackward">Назад</string>
+    <string name="btnCancelSetting">Отмена</string>
+
+</resources>
