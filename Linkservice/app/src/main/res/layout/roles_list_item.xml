@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlayRolesItem"
+    android:layout_width="match_parent"
+    android:layout_height="94dp" >
+
+    <!--<ImageView-->
+        <!--android:id="@+id/newsItemBgIV"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="63dp"-->
+        <!--android:layout_marginLeft="7dp"-->
+        <!--android:layout_marginTop="12dp"-->
+        <!--android:src="@drawable/icon_bg_shadow"-->
+        <!--android:visibility="visible" />-->
+
+    <TextView
+        android:id="@+id/tvNameRole"
+        style="@style/lsTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvInnRole"
+        style="@style/lsTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNameRole"
+        android:layout_alignLeft="@+id/tvNameRole"
+        android:layout_alignStart="@+id/tvNameRole"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/ivDeleteRole"
+        android:layout_alignTop="@+id/tvNameRole"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/basket_64"
+        android:layout_marginRight="5dp" />
+
+
+</RelativeLayout>
