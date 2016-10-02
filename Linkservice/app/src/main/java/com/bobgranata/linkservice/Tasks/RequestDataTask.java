@@ -21,8 +21,8 @@ import java.net.URL;
 import java.util.List;
 
 public class RequestDataTask extends AsyncTask<String, Void, String> {
-    private static final int NET_READ_TIMEOUT_MILLIS = 30000;
-    private static final int NET_CONNECT_TIMEOUT_MILLIS = 30000;
+    private static final int NET_READ_TIMEOUT_MILLIS = 1000;
+    private static final int NET_CONNECT_TIMEOUT_MILLIS = 1000;
 
     //    http://92.43.187.142:4000/GetDocs?access_key=632CAC3A&date_last_update=0
     private final String URL_SERVER = "http://92.43.187.142:4000/";

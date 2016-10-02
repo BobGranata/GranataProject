@@ -401,6 +401,43 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandle
     }
 
     @Override
+    public List<DocCirculModel> getDocCirculsByDate(String sDate) {
+        List<DocCirculModel> listDocCircul = new ArrayList<DocCirculModel>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_DOCCIRCUL, new String[] { KEY_ID,
+                        KEY_ID_INFCOM, KEY_NAME, KEY_STATUS, KEY_CREATE_DATE }, KEY_CREATE_DATE + ">=?",
+                new String[] { String.valueOf(sDate) }, null, null, null, null);
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    String sIdDocCircul = cursor.getString(0);
+                    String sIdInfcom = cursor.getString(1);
+                    String sName = cursor.getString(2);
+                    String sStatus = cursor.getString(3);
+                    String sCreateDate = cursor.getString(4);
+
+                    DocCirculModel docCircul = new DocCirculModel();
+                    docCircul.setIdDocCircul(sIdDocCircul);
+                    docCircul.setIdInfcom(sIdInfcom);
+                    docCircul.setNameDocCircul(sName);
+                    docCircul.setStatusDocCircul(sStatus);
+                    docCircul.setCreateDate(sCreateDate);
+
+                    docCircul.setListDocument(getDocuments(sIdDocCircul));
+
+                    listDocCircul.add(docCircul);
+                } while (cursor.moveToNext());
+            }
+            return listDocCircul;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public int updateDocCircul(DocCirculModel doccircul) {
         SQLiteDatabase db = this.getWritableDatabase();
 

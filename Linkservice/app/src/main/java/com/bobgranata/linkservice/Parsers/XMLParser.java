@@ -188,7 +188,7 @@ public class XMLParser {
             }
             String name = parser.getName();
             if (name.equals("DocsInfo")) {
-                mDocCircul.addDocument(readDocument(parser));
+                mDocCircul.addDocument(readDocument(parser, idDocCircul));
             } else {
                 skip(parser);
             }
@@ -203,11 +203,11 @@ public class XMLParser {
         return mDocCircul;
     }
 
-    private DocumentModel readDocument(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private DocumentModel readDocument(XmlPullParser parser, String idDocCircul) throws XmlPullParserException, IOException {
         DocumentModel mDocument = new DocumentModel();
         parser.require(XmlPullParser.START_TAG, ns, "DocsInfo");
         String idDocument = parser.getAttributeValue(null, "id_doc");
-        String idDocCircul = parser.getAttributeValue(null, "id_dc_doc");
+//        String idDocCircul = parser.getAttributeValue(null, "id_dc_doc");
         String nameDocument = parser.getAttributeValue(null, "name_doc");
 
         byte[] data = Base64.decode(nameDocument, Base64.DEFAULT);

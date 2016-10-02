@@ -32,6 +32,7 @@ public interface IDatabaseHandler {
     public void addDocCircul(DocCirculModel doccircul);
     public DocCirculModel getDocCircul(String idDoccircul);
     public List<DocCirculModel> getDocCirculs(String idInfCom);
+    public List<DocCirculModel> getDocCirculsByDate(String sDate);
     public int updateDocCircul(DocCirculModel doccircul);
     public void insertDocCircul(DocCirculModel doccircul);
 

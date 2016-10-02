@@ -30,5 +30,18 @@
     <string name="CreateDate">Дата создания:</string>
     <!--<string name="no_one_role">У вас пока не добавленно ни одной организации.</string>-->
     <string name="no_one_role">У вас в списке пока нет ни одной организации.</string>
+    <string name="FilterAccounting">Отчётность</string>
+    <string name="FilterRequirements">Требование</string>
+    <string name="FilterRequest">Запрос на ИОН</string>
+    <string name="FilterNDFL2">НДФЛ-2</string>
+    <string name="FilterUnform">Письма в налоговую</string>
+    <string name="FilterRepresentation">Представления</string>
+    <string name="FilterAll">Все</string>
+
+    <string name="FilterByYear">Год</string>
+    <string name="FilterByHalfYear">6 месяцев</string>
+    <string name="FilterByMonth">Месяц</string>
+    <string name="FilterByWeek">Неделя</string>
+    <string name="FilterByDay">День</string>
 
 </resources>
