@@ -16,7 +16,32 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/CreateDate"
+        android:id="@+id/tvCommonCreateDate"
+        android:layout_marginRight="30dp"
+        android:layout_above="@+id/elvDocCirculList"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/tvNoOneDocCircul"
+        android:text="@string/NoOneDocCircul"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_below="@+id/tvDocCirculTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <ProgressBar
         android:layout_width="wrap_content"
@@ -30,6 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/elvDocCirculList"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/tvDocCirculTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

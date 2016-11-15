@@ -30,12 +30,32 @@
     <string name="CreateDate">Дата создания:</string>
     <!--<string name="no_one_role">У вас пока не добавленно ни одной организации.</string>-->
     <string name="no_one_role">У вас в списке пока нет ни одной организации.</string>
+
+    <!--const DC_Type DC_Accounting =-->
+    <!--{"01", "Декларация", 		"Accounting",		"Отчётность",				&DC_Accounting_RouteList};-->
+    <!--const DC_Type DC_UnformEnt =-->
+    <!--{"02", "ОбращениеНП", 		"UnformEnt",		"Письма абонента",			&DC_UnformEnt_RouteList};-->
+    <!--const DC_Type DC_Service =-->
+    <!--{"06", "ИОН", 				"Service",			"ИОН",						&DC_Service_RouteList};-->
+    <!--const DC_Type DC_Earning =-->
+    <!--{"08", "Сведения2НДФЛ", 	"Earning",			"2-НДФЛ",					&DC_Earning_RouteList};-->
+    <!--const DC_Type DC_Petition =-->
+    <!--{"09", "Заявление", 		"Petition",			"Заявление",				&DC_Petition_RouteList};-->
+    <!--const DC_Type DC_Document =-->
+    <!--{"10", "Документ", 			"Document",			"Документ",					&DC_Document_RouteList};-->
+    <!--const DC_Type DC_BankGuarantee =-->
+    <!--{"11", "Уведомление", 		"BankGuarantee",	"Банковские гарантии",		&DC_BankGuarantee_RouteList};-->
+    <!--const DC_Type DC_Presentation =-->
+    <!--{"12", "Представление",		"Presentation",		"Представление",			&DC_Presentation_RouteList};-->
+
     <string name="FilterAccounting">Отчётность</string>
-    <string name="FilterRequirements">Требование</string>
+    <string name="FilterUnform">Письма абонента</string>
     <string name="FilterRequest">Запрос на ИОН</string>
-    <string name="FilterNDFL2">НДФЛ-2</string>
-    <string name="FilterUnform">Письма в налоговую</string>
-    <string name="FilterRepresentation">Представления</string>
+    <string name="FilterNDFL2">2-НДФЛ</string>
+    <string name="FilterPetition">Заявление</string>
+    <string name="FilterRequirements">Требование</string>
+    <string name="FilterBankGuarantee">Банковские гарантии</string>
+    <string name="FilterRepresentation">Представление</string>
     <string name="FilterAll">Все</string>
 
     <string name="FilterByYear">Год</string>
@@ -43,5 +63,7 @@
     <string name="FilterByMonth">Месяц</string>
     <string name="FilterByWeek">Неделя</string>
     <string name="FilterByDay">День</string>
+    <string name="NoOneDocCircul">За выбранный период, по данному направлению, не найдено ни одного документооборота.</string>
+    <string name="menu_search">Поиск</string>
 
 </resources>

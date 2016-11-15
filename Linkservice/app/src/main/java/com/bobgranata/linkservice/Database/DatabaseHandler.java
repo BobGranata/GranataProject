@@ -401,14 +401,14 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandle
     }
 
     @Override
-    public List<DocCirculModel> getDocCirculsByDate(String sDate) {
+    public List<DocCirculModel> getDocCirculsByDate(String sDate, String idInfCom) {
         List<DocCirculModel> listDocCircul = new ArrayList<DocCirculModel>();
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.query(TABLE_DOCCIRCUL, new String[] { KEY_ID,
-                        KEY_ID_INFCOM, KEY_NAME, KEY_STATUS, KEY_CREATE_DATE }, KEY_CREATE_DATE + ">=?",
-                new String[] { String.valueOf(sDate) }, null, null, null, null);
+                        KEY_ID_INFCOM, KEY_NAME, KEY_STATUS, KEY_CREATE_DATE }, KEY_CREATE_DATE + ">=? AND " + KEY_ID_INFCOM + "=?",
+                new String[] { String.valueOf(sDate), String.valueOf(idInfCom)}, null, null, null, null);
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {

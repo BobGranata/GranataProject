@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,19 +20,22 @@ import com.bobgranata.linkservice.Models.DocumentModel;
 import com.bobgranata.linkservice.Models.InfComModel;
 import com.bobgranata.linkservice.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by BobGranata on 03.08.2016.
  */
-public class DocCirculListAdapter  extends BaseExpandableListAdapter {
+public class DocCirculListAdapter  extends BaseExpandableListAdapter implements Filterable {
     private static final int MAX_LENGTH_TITLE = 65;
     private final Context mContext;
-    private final List<DocCirculModel> mGroups;
+    private List<DocCirculModel> mGroups;
+    List<DocCirculModel> allDocCircul;
 
     public DocCirculListAdapter(Context context, List<DocCirculModel> values) {
         this.mContext = context;
         this.mGroups = values;
+        this.allDocCircul = new ArrayList<DocCirculModel>(mGroups);
     }
 
     @Override
@@ -162,6 +167,42 @@ public class DocCirculListAdapter  extends BaseExpandableListAdapter {
 //        });
 
         return convertView;
+    }
+
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults filterResults = new FilterResults();
+                if(constraint == null || constraint.length() == 0) {
+
+                    filterResults.values = allDocCircul;
+                    filterResults.count = allDocCircul.size();
+                } else {
+                    ArrayList<DocCirculModel>
+                            filteredList = new ArrayList<DocCirculModel>();
+                    for(DocCirculModel j: allDocCircul){
+                        if(j.getName().toLowerCase().contains(constraint.toString().toLowerCase()))
+                            filteredList.add(j);
+                    }
+                    filterResults.values = filteredList;
+                    filterResults.count = filteredList.size();
+                }
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                if (results != null && results.count > 0) {
+                    mGroups = (List<DocCirculModel>) results.values;
+                    notifyDataSetChanged();
+                } else {
+                    notifyDataSetInvalidated();
+                }
+            }};
+
+        return filter;
     }
 
     @Override

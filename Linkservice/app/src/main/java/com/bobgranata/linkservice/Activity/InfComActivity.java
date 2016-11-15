@@ -1,8 +1,14 @@
 package com.bobgranata.linkservice.Activity;
 
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -22,11 +28,13 @@ import com.bobgranata.linkservice.Tasks.RoleInfComTask;
 
 import java.util.List;
 
-public class InfComActivity extends Activity {
+public class InfComActivity extends AppCompatActivity {
     ProgressBar mmInfComProgressBar;
     List<InfComModel> mmListInfCom;
     ListView mmLvInfComList;
     String mmIdRole;
+
+    private ListInfComAdapter mmInfComAdapter;
 
     public final static String INFCOM_ID = "INFCOM_ID";
     @Override
@@ -39,26 +47,19 @@ public class InfComActivity extends Activity {
         String sAccesKey = getIntent().getExtras().getString(LoginActivity.ACESS_KEY);
         mmIdRole = getIntent().getExtras().getString(LoginActivity.ID_ROLE);
 
-        if (sAccesKey.equals("") || mmIdRole.equals("")) {
-
-        }
-
         mmInfComProgressBar.setVisibility(View.VISIBLE);
-//        RoleInfComTask roleInfComTask = new RoleInfComTask(this);
+
         RequestDataTask roleInfComTask = new RequestDataTask(this);
         //http://92.43.187.142:4000/GetDocs?access_key=632CAC3A&date_last_update=0
 
-        // TODO очевидно значение нужно откуда то брать. Из базы например.
         DatabaseHandler db = new DatabaseHandler(this);
         String sLastUpdate = db.getRole(mmIdRole).getDateLastUpdate();
 
-//        roleInfComTask.execute(sAccesKey, sLastUpdate);
         roleInfComTask.execute(RequestMode.INF_COM, sAccesKey, sLastUpdate);
-
-        //https://geocode-maps.yandex.ru/1.x/?geocode=55.157723,61.381479&results=1&format=xml
 
         // получаем экземпляр элемента ListView
         mmLvInfComList = (ListView)findViewById(R.id.lvInfComList);
+        mmLvInfComList.setTextFilterEnabled(true);
 
         mmLvInfComList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -75,6 +76,35 @@ public class InfComActivity extends Activity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_inf_com, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.searchInfCom));
+        if (null != searchView) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setIconifiedByDefault(true);
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    if (mmInfComAdapter != null) {
+                        mmInfComAdapter.getFilter().filter(newText);
+                    }
+                    return false;
+                }
+            });
+        }
+        return true;
+    }
+
     public void updateInfComList(InfoModel listInfo) {
         mmInfComProgressBar.setVisibility(View.INVISIBLE);
 
@@ -87,27 +117,13 @@ public class InfComActivity extends Activity {
             db.updateRole(sUpdateRole);
         }
 
-//        if (listInfo != null) {
-//            for (InfComModel infcom : listInfo.getListInfCom()) {
-//                db.addInfCom(infcom);
-//            }
-//
-//            List<DocCirculModel> listDocCircul = listInfo.getListDocCircul();
-//            for (DocCirculModel doccircul : listDocCircul) {
-//                db.addDocCircul(doccircul);
-//            }
-//
-//            for (DocumentModel document : listInfo.getListDocument()) {
-//                db.addDocument(document);
-//            }
-//        }
-
         // TODO проверять есть ли хоть одно направление в базе
         mmListInfCom = db.getInfComs(mmIdRole);
         // используем кастомный адаптер данных
-        ListInfComAdapter adapter = new ListInfComAdapter(this, mmListInfCom);
+        mmInfComAdapter = new ListInfComAdapter(this, mmListInfCom);
 
-        mmLvInfComList.setAdapter(adapter);
+        mmLvInfComList.setAdapter(mmInfComAdapter);
+        mmLvInfComList.setTextFilterEnabled(true);
     }
 
     public void updateInfComList(String sError) {
@@ -118,8 +134,9 @@ public class InfComActivity extends Activity {
         // TODO проверять есть ли хоть одно направление в базе
         mmListInfCom = db.getInfComs(mmIdRole);
         // используем кастомный адаптер данных
-        ListInfComAdapter adapter = new ListInfComAdapter(this, mmListInfCom);
+        mmInfComAdapter = new ListInfComAdapter(this, mmListInfCom);
 
-        mmLvInfComList.setAdapter(adapter);
+        mmLvInfComList.setAdapter(mmInfComAdapter);
+        mmLvInfComList.setTextFilterEnabled(true);
     }
 }

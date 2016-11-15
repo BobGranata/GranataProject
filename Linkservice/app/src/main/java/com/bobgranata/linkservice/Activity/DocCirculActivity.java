@@ -1,46 +1,55 @@
 package com.bobgranata.linkservice.Activity;
 
-import android.app.Activity;
-import android.app.Dialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.bobgranata.linkservice.Adapters.DocCirculListAdapter;
-import com.bobgranata.linkservice.Adapters.ListRolesAdapter;
 import com.bobgranata.linkservice.Database.DatabaseHandler;
 import com.bobgranata.linkservice.Models.DocCirculModel;
-import com.bobgranata.linkservice.Models.DocumentModel;
 import com.bobgranata.linkservice.R;
 import com.bobgranata.linkservice.Tasks.RequestDataTask;
 import com.bobgranata.linkservice.Tasks.RequestMode;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DocCirculActivity extends AppCompatActivity {
     ProgressBar mmDocCirculProgressBar;
     List<DocCirculModel> mmListDocCircul;
     ExpandableListView mmElvDocCirculList;
+    private DocCirculListAdapter adapterDC;
+    TextView mmTvNoOneDocCircul;
+    TextView mmTvCommonCreateDate;
+    TextView mmTvDocCirculTitle;
 
     String mmInfComId;
 
-    final String ACCAUNTING = "acaunting";
-    final String REQUIREMENTS = "requirements"; // Требование
-    final String REQUEST = "request"; // Запрос на информационное обслуживание
-    final String NDFL2 = "ndfl2";
-    final String UNFORM = "unform"; // Обращение налогоплатильщика // Письма абонента
-    final String REPRESENT = "representation";
+    final String ACCAUNTING = "Accaunting";
+    final String REQUIREMENTS = "Requirements"; // Требование
+    final String REQUEST = "Request"; // Запрос на информационное обслуживание
+    final String NDFL2 = "Ndfl2"; //2-НДФЛ
+    final String UNFORM = "Unform"; // Обращение налогоплатильщика // Письма абонента
+    final String REPRESENT = "Representation"; //Представление
+    final String BANK = "BankGuarantee"; //Уведомление о факте выдачи гарантии
+    final String PETITION = "Petition"; //Заявление
     final String ALL_TYPE = "all";
 
     final int BY_YEAR = 0;
@@ -56,6 +65,9 @@ public class DocCirculActivity extends AppCompatActivity {
 
         mmDocCirculProgressBar = (ProgressBar)findViewById(R.id.docCirculProgressBar);
         mmElvDocCirculList = (ExpandableListView)findViewById(R.id.elvDocCirculList);
+        mmTvCommonCreateDate = (TextView) findViewById(R.id.tvCommonCreateDate);
+        mmTvDocCirculTitle = (TextView) findViewById(R.id.tvDocCirculTitle);
+        mmTvNoOneDocCircul = (TextView) findViewById(R.id.tvNoOneDocCircul);
 
         if (android.os.Build.VERSION.SDK_INT <
                 android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -72,32 +84,14 @@ public class DocCirculActivity extends AppCompatActivity {
 
         mmDocCirculProgressBar.setVisibility(View.VISIBLE);
 
-//==========================================================================
         RequestDataTask roleInfComTask = new RequestDataTask(this);
         //http://92.43.187.142:4000/GetDocs?access_key=632CAC3A&date_last_update=0
 
-        // TODO очевидно значение нужно откуда то брать. Из базы например.
         DatabaseHandler db = new DatabaseHandler(this);
         String sLastUpdate = db.getInfCom(mmInfComId).getDateLastUpdate();
 
 //        roleInfComTask.execute(sAccesKey, sLastUpdate);
         roleInfComTask.execute(RequestMode.DOC_CIRCULS, mmInfComId, sLastUpdate);
-//==========================================================================
-
-//        DatabaseHandler db = new DatabaseHandler(this);
-//        mmListDocCircul = db.getDocCirculs(sInfComId);
-//
-//        if (mmListDocCircul.size() > 0) {
-//
-//            // используем кастомный адаптер данных
-//            DocCirculListAdapter adapter = new DocCirculListAdapter(this, mmListDocCircul);
-//
-//            mmElvDocCirculList.setAdapter(adapter);
-//        }
-//
-//        mmDocCirculProgressBar.setVisibility(View.INVISIBLE);
-
-//        mmListInfCom = db.getAllInfComs();
 
     }
 
@@ -110,11 +104,45 @@ public class DocCirculActivity extends AppCompatActivity {
 
         if (mmListDocCircul.size() > 0) {
 
-            // используем кастомный адаптер данных
-            DocCirculListAdapter adapter = new DocCirculListAdapter(this, mmListDocCircul);
+            // используем кастомный адаптер данных DocCirculListAdapter
+            adapterDC = new DocCirculListAdapter(this, mmListDocCircul);
 
-            mmElvDocCirculList.setAdapter(adapter);
+            mmElvDocCirculList.setAdapter(adapterDC);
+            mmElvDocCirculList.setTextFilterEnabled(true);
+
+            mmTvCommonCreateDate.setVisibility(View.VISIBLE);
+            mmTvDocCirculTitle.setVisibility(View.VISIBLE);
+
+        } else {
+            mmTvNoOneDocCircul.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_doc_circul, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.searchByName));
+        if (null != searchView) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setIconifiedByDefault(true);
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    adapterDC.getFilter().filter(newText);
+                    return false;
+                }
+            });
+        }
+        return true;
     }
 
     public void updateListByTypeDoc(String sType) {
@@ -122,33 +150,53 @@ public class DocCirculActivity extends AppCompatActivity {
         List<DocCirculModel> ListByTypeDocCircul = new ArrayList<DocCirculModel>(mmListDocCircul);
         if (mmListDocCircul.size() > 0) {
 //            ACCAUNTING
+
+//            final String REQUIREMENTS = "Requirements"; // Требование
+//            final String REQUEST = "Request"; // Запрос на информационное обслуживание
+//            final String NDFL2 = "Ndfl2"; //2-НДФЛ
+//            final String UNFORM = "Unform"; // Обращение налогоплатильщика // Письма абонента
+//            final String REPRESENT = "Representation"; //Представление
+//            final String BANK = "BankGuarantee"; //Уведомление о факте выдачи гарантии
+//            final String PETITION = "Petition"; //Заявление
             if (sType.equals(REQUIREMENTS)) {
                 for (DocCirculModel docCircul: mmListDocCircul) {
-                    if (docCircul.getName().indexOf("Требование") == -1) {
+                    if (!docCircul.getName().contains("Требование")) {
+                        ListByTypeDocCircul.remove(docCircul);
+                    }
+                }
+            } else if (sType.equals(PETITION)) {
+                for (DocCirculModel docCircul: mmListDocCircul) {
+                    if (!docCircul.getName().contains("Заявление")) {
+                        ListByTypeDocCircul.remove(docCircul);
+                    }
+                }
+            } else if (sType.equals(BANK)) {
+                for (DocCirculModel docCircul: mmListDocCircul) {
+                    if (!docCircul.getName().contains("гарантии")) {
                         ListByTypeDocCircul.remove(docCircul);
                     }
                 }
             } else if (sType.equals(REQUEST)) {
                 for (DocCirculModel docCircul: mmListDocCircul) {
-                    if (docCircul.getName().indexOf("Запрос") == -1) {
+                    if (!docCircul.getName().contains("Запрос")) {
                         ListByTypeDocCircul.remove(docCircul);
                     }
                 }
             } else if (sType.equals(NDFL2)) {
                 for (DocCirculModel docCircul: mmListDocCircul) {
-                    if (docCircul.getName().indexOf("ЗАГЛУШКА") == -1) {
+                    if (!docCircul.getName().contains("2-НДФЛ")) {
                         ListByTypeDocCircul.remove(docCircul);
                     }
                 }
             } else if (sType.equals(UNFORM)) {
                 for (DocCirculModel docCircul: mmListDocCircul) {
-                    if (docCircul.getName().indexOf("ЗАГЛУШКА") == -1) {
+                    if (!docCircul.getName().contains("Обращение") && !docCircul.getName().contains("Письма")) {
                         ListByTypeDocCircul.remove(docCircul);
                     }
                 }
             } else if (sType.equals(REPRESENT)) {
                 for (DocCirculModel docCircul: mmListDocCircul) {
-                    if (docCircul.getName().indexOf("ЗАГЛУШКА") == -1) {
+                    if (!docCircul.getName().contains("Представление")) {
                     ListByTypeDocCircul.remove(docCircul);
                     }
                 }
@@ -156,9 +204,11 @@ public class DocCirculActivity extends AppCompatActivity {
         }
 
         // используем кастомный адаптер данных
-        DocCirculListAdapter adapter = new DocCirculListAdapter(this, ListByTypeDocCircul);
+//        DocCirculListAdapter adapter = new DocCirculListAdapter(this, ListByTypeDocCircul);
+//        mmElvDocCirculList.setAdapter(adapter);
 
-        mmElvDocCirculList.setAdapter(adapter);
+        adapterDC = new DocCirculListAdapter(this, ListByTypeDocCircul);
+        mmElvDocCirculList.setAdapter(adapterDC);
     }
 
     public void updateListByTime(int iTime) {
@@ -169,30 +219,56 @@ public class DocCirculActivity extends AppCompatActivity {
 
         List<DocCirculModel> ListByTypeDocCircul = new ArrayList<DocCirculModel>(mmListDocCircul);
         if (mmListDocCircul.size() > 0) {
+
+            Calendar calendar = Calendar.getInstance();
+            Date nowDate = new Date();
+            calendar.setTime(nowDate);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String sFilterDate = "";
+
             switch (iTime) {
                 case BY_YEAR : {
 //                    WHERE date_entering<= data
-                    ListByTypeDocCircul = db.getDocCirculsByDate("01.09.2016 11:58:44");
-                }
+                    calendar.add(Calendar.YEAR, -1);
+                    Date dFormat = calendar.getTime();
+                    sFilterDate = dateFormat.format(dFormat);
+
+                } break;
                 case BY_HALF_YEAR : {
+                    calendar.add(Calendar.MONTH, -6);
+                    Date dFormat = calendar.getTime();
+                    sFilterDate = dateFormat.format(dFormat);
 
-                }
+                } break;
                 case BY_MONTH : {
+                    calendar.add(Calendar.MONTH, -1);
+                    Date dFormat = calendar.getTime();
+                    sFilterDate = dateFormat.format(dFormat);
 
-                }
+                } break;
                 case BY_WEEK : {
+                    calendar.add(Calendar.HOUR, -24*7);
+                    Date dFormat = calendar.getTime();
+                    sFilterDate = dateFormat.format(dFormat);
 
-                }
+                } break;
                 case BY_DAY : {
+                    calendar.add(Calendar.HOUR, -24);
+                    Date dFormat = calendar.getTime();
+                    sFilterDate = dateFormat.format(dFormat);
 
-                }
+                } break;
             }
+
+            ListByTypeDocCircul = db.getDocCirculsByDate(sFilterDate, mmInfComId);
         }
 
         // используем кастомный адаптер данных
-        DocCirculListAdapter adapter = new DocCirculListAdapter(this, ListByTypeDocCircul);
+//        DocCirculListAdapter adapter = new DocCirculListAdapter(this, ListByTypeDocCircul);
+//        mmElvDocCirculList.setAdapter(adapter);
 
-        mmElvDocCirculList.setAdapter(adapter);
+        adapterDC = new DocCirculListAdapter(this, ListByTypeDocCircul);
+        mmElvDocCirculList.setAdapter(adapterDC);
     }
 
     public void SelectTimePeriod() {
@@ -218,18 +294,8 @@ public class DocCirculActivity extends AppCompatActivity {
         alert.show();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_doc_circul, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
 
         switch (item.getItemId()) {
             //noinspection SimplifiableIfStatement
@@ -241,6 +307,19 @@ public class DocCirculActivity extends AppCompatActivity {
                 SelectTimePeriod();
                 return true;
             }
+
+            case R.id.menuTypeFilterPetition : {
+                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                updateListByTypeDoc(PETITION);
+                return true;
+            }
+
+            case R.id.menuTypeFilterByBankGuarantee : {
+                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                updateListByTypeDoc(BANK);
+                return true;
+            }
+
             case R.id.menuTypeFilterByAccounting : {
                 Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(ACCAUNTING);

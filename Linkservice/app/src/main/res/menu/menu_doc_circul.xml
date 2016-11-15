@@ -5,47 +5,19 @@
     tools:context=".Activity.DocCirculActivity">
 
     <item
+        android:id="@+id/searchByName"
+        android:orderInCategory="10"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:icon="@drawable/ic_search_white_48dp"
+        app:showAsAction="collapseActionView|ifRoom"
+        android:title="@string/menu_search"/>
+
+    <item
         android:id="@+id/filter_id"
         android:orderInCategory="100"
         android:icon="@drawable/ic_date_range_white_48dp"
         android:title="search"
         app:showAsAction="always">
-
-        <!--<menu>-->
-            <!--<group>-->
-
-                <!--<item-->
-                    <!--android:id="@+id/menuTimeFilterByYear"-->
-                    <!--android:orderInCategory="10"-->
-                    <!--app:showAsAction="never"-->
-                    <!--android:title="@string/FilterByYear"/>-->
-
-                <!--<item-->
-                    <!--android:id="@+id/menuTimeFilterByHalfYear"-->
-                    <!--android:orderInCategory="20"-->
-                    <!--app:showAsAction="never"-->
-                    <!--android:title="@string/FilterByHalfYear"/>-->
-
-                <!--<item-->
-                    <!--android:id="@+id/menuTimeFilterByMonth"-->
-                    <!--android:orderInCategory="30"-->
-                    <!--app:showAsAction="never"-->
-                    <!--android:title="@string/FilterByMonth"/>-->
-
-                <!--<item-->
-                    <!--android:id="@+id/menuTimeFilterByWeek"-->
-                    <!--android:orderInCategory="40"-->
-                    <!--app:showAsAction="never"-->
-                    <!--android:title="@string/FilterByWeek"/>-->
-
-                <!--<item-->
-                    <!--android:id="@+id/menuTimeFilterByDay"-->
-                    <!--android:orderInCategory="50"-->
-                    <!--app:showAsAction="never"-->
-                    <!--android:title="@string/FilterByDay"/>-->
-
-            <!--</group>-->
-        <!--</menu>-->
     </item>
 
     <item
@@ -62,6 +34,7 @@
                     android:orderInCategory="100"
                     app:showAsAction="never"
                     android:title="@string/FilterAll"/>
+
                 <item
                     android:id="@+id/menuTypeFilterByAccounting"
                     android:orderInCategory="200"
@@ -69,10 +42,10 @@
                     android:title="@string/FilterAccounting"/>
 
                 <item
-                    android:id="@+id/menuTypeFilterByRequirements"
+                    android:id="@+id/menuTypeFilterByUnform"
                     android:orderInCategory="300"
                     app:showAsAction="never"
-                    android:title="@string/FilterRequirements"/>
+                    android:title="@string/FilterUnform"/>
 
                 <item
                     android:id="@+id/menuTypeFilterByRequest"
@@ -87,14 +60,26 @@
                     android:title="@string/FilterNDFL2"/>
 
                 <item
-                    android:id="@+id/menuTypeFilterByUnform"
+                    android:id="@+id/menuTypeFilterPetition"
                     android:orderInCategory="600"
                     app:showAsAction="never"
-                    android:title="@string/FilterUnform"/>
+                    android:title="@string/FilterPetition"/>
+
+                <item
+                    android:id="@+id/menuTypeFilterByRequirements"
+                    android:orderInCategory="700"
+                    app:showAsAction="never"
+                    android:title="@string/FilterRequirements"/>
+
+                <item
+                    android:id="@+id/menuTypeFilterByBankGuarantee"
+                    android:orderInCategory="800"
+                    app:showAsAction="never"
+                    android:title="@string/FilterBankGuarantee"/>
 
                 <item
                     android:id="@+id/menuTypeFilterByRepresentation"
-                    android:orderInCategory="700"
+                    android:orderInCategory="900"
                     app:showAsAction="never"
                     android:title="@string/FilterRepresentation"/>
             </group>
