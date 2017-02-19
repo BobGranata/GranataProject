@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/splash" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/registration_code_background" />
+        
+		<ImageView
+            android:id="@+id/btn_close_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+		    android:layout_marginRight="5dp"
+		    android:layout_marginTop="3dp"
+		    android:clickable="true"
+            android:src="@drawable/btn_close" />
+
+        <TextView
+            android:id="@+id/twRegMailTitle1"
+            style="@style/OrangeFont.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/TITLE_REG_MAIL_1" />
+
+        <TextView
+            android:id="@+id/twRegMailText1"
+            style="@style/NormalText.Little"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twRegMailTitle1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/etMail"
+            style="@style/EditTextStyle"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="220dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="5dp"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btnInschrijven"
+            style="@style/PointButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/etMail"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="15dp"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:text="@string/BTN_INSCHRIJVEN" />
+
+        <TextView
+            android:id="@+id/twRegMailTitle2"
+            style="@style/OrangeFont.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_below="@+id/btnInschrijven"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/TITLE_REG_MAIL_2" />
+
+        <TextView
+            android:id="@+id/twRegMailText2"
+            style="@style/NormalText.Little"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+			android:layout_below="@+id/twRegMailTitle2"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>

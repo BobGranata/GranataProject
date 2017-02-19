@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/newsItemRLay"
+    android:layout_width="match_parent"
+    android:layout_height="94dp" >
+
+    <ImageView
+        android:id="@+id/newsItemBgIV"
+        android:layout_width="100dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/icon_bg_shadow"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/newsItemIV"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/titleNewsItemTV"
+        style="@style/OrangeFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="7dp"
+        android:text="TextView"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/shortTextItemNewsTV"
+        style="@style/NormalText.Little"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="27dp"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/dateTV"
+        style="@style/NormalText.Little"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="74dp"
+        android:text="TextView"
+        android:textColor="@color/GREY"
+        android:textSize="10sp" />
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nieuws_lay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nieuws_bg_gr" >
+
+<TextView
+        android:id="@+id/sorteerTextView"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleButton1"
+        android:layout_alignBottom="@+id/toggleButton1"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/toggleButton1"
+        android:text="@string/sorteer_tv_text"
+        android:textSize="11sp" />
+
+    <ListView
+        android:id="@+id/newsList"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="125dp" >
+    </ListView>
+
+	<Spinner
+        android:id="@+id/newsCategoriSpinner"
+        style="@style/NormalText.Little"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="93dp"
+        android:background="@drawable/nieuws_category_spiner"
+        android:entries="@array/news_cetegory_list" />
+
+     <ToggleButton
+        android:id="@+id/toggleButton1"
+        style="@style/ToggleBtnStyle"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@+id/newsCategoriSpinner"
+        android:layout_alignBottom="@+id/newsCategoriSpinner"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/newsCategoriSpinner"
+        android:checked="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@color/BLACK"
+        android:textOff=""
+        android:textOn="" />
+    
+     <LinearLayout
+    	android:id="@+id/ll_news_top_menu"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true" >
+    </LinearLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btn_alpha_news"
+            style="@style/AlphaButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    
+	<LinearLayout
+    	android:id="@+id/ll_news_bot_menu"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true" >
+    </LinearLayout>
+</RelativeLayout>

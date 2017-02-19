@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone='yes' ?>
+<map>
+    <boolean name="IS_REGISTERED" value="false" />
+	<string name="PASSWORD" value="" />
+	
+    <boolean name="PUSH_STATUS" value="false" />
+    <boolean name="PUSH_BEER" value="true" />
+    <boolean name="PUSH_HUISDIEREN" value="true" />
+    <boolean name="PUSH_KIPPEN" value="true" />
+    <boolean name="PUSH_OLIFANT" value="true" />
+    <boolean name="PUSH_VEE" value="true" />
+    <int name="PUSH_SOUND_TYPE" value="5" />
+    <string name="PUSH_ACCESS_TOKEN" value=""/>
+    <boolean name="NEWS_SORT_TYPE" value="true" />
+
+</map>

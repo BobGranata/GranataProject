@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_notification_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/notification_back" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="115dp"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twPush1"
+                    style="@style/OrangeFont.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/SET_PUSH_STATUS" />
+
+                <ToggleButton
+                    android:id="@+id/tbtnPush1"
+                    style="@style/ToggleBtnStyleNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_orange" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twPush2"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/SET_PUSH_ALGEMEEN" />
+
+                <ToggleButton
+                    android:id="@+id/tbtnPush2"
+                    style="@style/ToggleBtnStyleNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twPush3"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/SET_PUSH_HUISDIEREN" />
+
+                <ToggleButton
+                    android:id="@+id/tbtnPush3"
+                    style="@style/ToggleBtnStyleNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twPush4"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/SET_PUSH_RAMPEN" />
+
+                <ToggleButton
+                    android:id="@+id/tbtnPush4"
+                    style="@style/ToggleBtnStyleNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twPush5"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/SET_PUSH_VEE" />
+
+                <ToggleButton
+                    android:id="@+id/tbtnPush5"
+                    style="@style/ToggleBtnStyleNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twPush6"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/SET_PUSH_WILD" />
+
+                <ToggleButton
+                    android:id="@+id/tbtnPush6"
+                    style="@style/ToggleBtnStyleNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="13dp" >
+
+                <TextView
+                    android:id="@+id/twSounds"
+                    style="@style/OrangeFont.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:text="@string/SET_PUSH_SOUNDS" />
+
+                <ImageView
+                    android:layout_width="360dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:src="@drawable/line_orange" />
+            </LinearLayout>
+
+            <RelativeLayout
+				android:id="@+id/rl_check_lay1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twRadio1"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/SOUND_NAME_1" />
+
+                <ImageView
+                    android:id="@+id/radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+				android:id="@+id/rl_check_lay2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+				android:padding="13dp"  >
+
+                <TextView
+                    android:id="@+id/twRadio2"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/SOUND_NAME_2" />
+
+                <ImageView
+                    android:id="@+id/radio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/rl_check_lay3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twRadio3"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/SOUND_NAME_3" />
+
+                <ImageView
+                    android:id="@+id/radio3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/rl_check_lay4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twRadio4"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/SOUND_NAME_4" />
+
+                <ImageView
+                    android:id="@+id/radio4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/rl_check_lay5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twRadio5"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/SOUND_NAME_5" />
+
+                <ImageView
+                    android:id="@+id/radio5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/rl_check_lay6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/twRadio6"
+                    style="@style/NormalText.Middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/SET_PUSH_WILD" />
+
+                <ImageView
+                    android:id="@+id/radio6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_notification_top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btn_alpha_notification"
+            style="@style/AlphaButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>    
+    
+    <LinearLayout
+        android:id="@+id/ll_notification_bot_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    </LinearLayout>
+
+</RelativeLayout>

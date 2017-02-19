@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/registration_code_background" />
+
+        <TextView
+            android:id="@+id/twRegCodeTitle1"
+            style="@style/OrangeFont.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/TITLE_REG_CODE_1" />
+
+        <TextView
+            android:id="@+id/twRegCodeText1"
+            android:linksClickable="true"
+            style="@style/NormalText.Little"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twRegCodeTitle1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp" />
+        
+		<TextView
+            android:id="@+id/twRegCodeHyperlink"
+            style="@style/NormalText.Hyperlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="99dp"
+            android:text="@string/TEXT_REG_CODE_1_PRIVIEW" />
+		
+		<TextView
+            android:id="@+id/twErrorCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="145dp"
+            android:layout_marginLeft="70dp"
+            style="@style/NormalText.Little"
+            android:textColor="@color/GREY"
+            android:textStyle="italic|bold"
+            android:textSize="12sp"
+            android:text="@string/TEXT_REG_CODE_1_ERROR_MESSAGE" />
+
+        <EditText
+            android:id="@+id/etCode"
+            style="@style/EditTextStyle"
+            android:inputType="textCapCharacters"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="170dp"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btnActiveren"
+            style="@style/PointButtonStyle.BigTitle"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/etCode"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="15dp"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:text="@string/BTN_ACTIVEREN" />
+
+        <TextView
+            android:id="@+id/twRegCodeTitle2"
+            style="@style/OrangeFont.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/btnActiveren"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:text="@string/TITLE_REG_CODE_2" />
+
+        <TextView
+            android:id="@+id/twRegCodeText2"
+            style="@style/NormalText.Little"
+            android:layout_below="@+id/twRegCodeTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/registration_code_background" />
+        
+		<ImageView
+		    android:id="@+id/btn_close_new_code"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_alignParentTop="true"
+		    android:layout_marginRight="5dp"
+		    android:layout_marginTop="3dp"
+		    android:clickable="true"
+		    android:src="@drawable/btn_close" />
+
+        <TextView
+            android:id="@+id/twRegCodeNewTitle1"
+            style="@style/OrangeFont.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/TITLE_REG_CODE_NEW_1" />
+
+        <TextView
+            android:id="@+id/twRegCodeNewText1"
+            android:linksClickable="true"
+            style="@style/NormalText.Little"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twRegCodeNewTitle1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp" />
+
+		<TextView
+            android:id="@+id/twHyperLinkNewCode"
+            android:linksClickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_below="@+id/twRegCodeNewText1"
+			android:layout_marginTop="170dp"
+			android:textSize="18sp"
+			android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/twRegCodeNewTitle2"
+            style="@style/OrangeFont.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_below="@+id/twHyperLinkNewCode"
+			android:layout_marginTop="80dp"
+            android:layout_marginLeft="40dp"
+            android:text="@string/TITLE_REG_CODE_NEW_2" />
+
+        <TextView
+            android:id="@+id/twRegCodeNewText2"
+            style="@style/NormalText.Little"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/twRegCodeNewTitle2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp" />
+
+    </RelativeLayout>

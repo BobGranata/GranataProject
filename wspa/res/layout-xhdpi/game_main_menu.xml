@@ -1,0 +1,149 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_back"
+    tools:context=".Main" >
+
+    <TextView
+        android:id="@+id/instelGameSettingTV"
+        style="@style/OrangeFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="110dp"
+        android:text="@string/GameSettingInstel_text"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instelGameSettingTV"
+        android:layout_marginTop="29dp"
+        android:src="@drawable/game_settings_btn_bg" />
+
+    <TextView
+        android:id="@+id/moelilGameSettingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/difficultSpinner"
+        android:layout_alignBottom="@+id/difficultSpinner"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/difficultSpinner"
+        android:text="@string/difficultyLevelTV"
+        android:textColor="@color/SASHAGREY" />
+
+    <Spinner
+        android:id="@+id/difficultSpinner"
+        android:layout_width="155dp"
+        android:layout_height="27dp"
+        android:layout_alignRight="@+id/memorButton"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/input_spin"
+        android:entries="@array/catlist"
+        android:paddingLeft="12dp"
+        android:paddingTop="2dp" />
+
+    <Button
+        android:id="@+id/memorButton"
+        style="@style/SimpleButtonStyle"
+        android:layout_width="281dp"
+        android:layout_height="38dp"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="85dp"
+        android:onClick="memButton_Click"
+        android:text="@string/start_spel_btn_text"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/highScoreButton"
+        style="@style/SimpleButtonStyle"
+        android:layout_width="281dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="39dp"
+        android:gravity="left|center_vertical"
+        android:onClick="highScoreButton_Click"
+        android:paddingLeft="19dp"
+        android:text="@string/highscore_button"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/infoButton"
+        style="@style/SimpleButtonStyle"
+        android:layout_width="281dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/highScoreButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="0dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="19dp"
+        android:text="@string/speluitleg_button_text"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:id="@+id/aboutLay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/aboutLay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_game_main_menu_top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_game_main_menu_alpha"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btn_alpha_game_main_menu"
+            style="@style/AlphaButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_game_main_menu_bot_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/secLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" >
+    </RelativeLayout>
+
+</RelativeLayout>

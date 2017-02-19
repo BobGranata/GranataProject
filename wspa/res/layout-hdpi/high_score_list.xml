@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/game_info_bg" />
+
+    <Button
+        android:id="@+id/closeHighTopButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/btn_close" />
+
+    <TextView
+        android:id="@+id/top10TextView"
+        style="@style/OrangeFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/high_topTV"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/readyMadeTextView"
+        style="@style/NormalText.Little"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/textHighScoreTV"
+        android:textColor="@color/SASHAGREY"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/puntenTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/top10TextView"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="122dp"
+        android:text="PUNTEN:"
+        android:textColor="@color/SASHAGREY"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/highScorListTextView"
+        android:layout_width="188dp"
+        android:layout_height="283dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="149dp"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

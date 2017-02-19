@@ -1,0 +1,11 @@
+/project.properties
+/.settings
+/bin
+/.classpath
+/.project
+/proguard-project.txt
+/gen
+/lint.xml
+/gen/com/wspa/app/notification/R.java
+/gen/com/wspa/app/notification/Manifest.java
+/gen/com/wspa/app/notification/BuildConfig.java

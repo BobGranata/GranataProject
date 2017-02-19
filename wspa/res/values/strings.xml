@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="APP_NAME">WSPA</string>
+    <string name="APP_PACKAGE">com.wspa.app.notification</string>
+    <string name="APP_VERSION">1.0</string>
+    <string name="FB_API_KEY">228040244001100</string>
+    <string name="loading_loading">Loading&#8230;</string>
+    <string name="WSPA_EMAIL">techniek@wspa.nl</string>
+    <string name="WSPA_SWEBITE">http://welkombijwspa.nl/app</string>
+    <string name="APP_SET">settings</string>
+    <string name="FACEBOOK_DATA">facebook</string>
+    <string name="TWITTER_CONSUMER_KEY">cjixGKa1txhYQVHqKfGw</string>
+    <string name="TWITTER_CONSUMER_SEKRET">PH7kIsjEyPge3dVs82lnDNqxNaGkFlv0r2fMhOvOf8g</string>
+    
+    
+    <string name="A_A_LADEN">laden</string>
+    <string name="A_A_CLICK">klikken</string>
+    
+    <string name="A_L_APP">app</string>
+    <string name="A_L_NEWS">nieuws</string>
+    <string name="A_L_MEMORY">memory</string>
+    <string name="A_L_DONATE">bezocht de donatie pagina</string>
+    <string name="A_L_NOTIFY">notificaties</string>
+    <string name="A_S_HIGHSCORE">Share highscore</string>
+    <string name="A_S_APP">Share app</string>
+    <string name="A_S_NEWS_DETAILS">Share nieuws detail</string>
+    <string name="A_MAIL_SUB">abonneren</string>
+    <string name="A_MAIL_NOSUB">niet abonneren</string>
+    
+    <string name="BTN_GA_NAAR_DE_APP">Ga naar de app</string>
+    <string name="BTN_ACTIVEREN">ACTIVEREN</string>
+    <string name="BTN_INSCHRIJVEN">INSCHRIJVEN</string>
+    <string name="BTN_HINT">HINT</string>
+    <string name="BTN_TWIT_UPDATE_STATIS">Twitt</string>
+    <string name="TITLE_NEWS">NIEUWS</string>
+    <string name="TITLE_MEMORY">MEMORY</string>
+    <string name="TITLE_MEMORY_START">GAME</string>
+    <string name="TITLE_WSPA_INFO">INFORMATIE</string>
+    <string name="TITLE_NOTIFICATIONS">NOTIFICATIES</string>
+    <string name="TITLE_REG_CODE_1">Activeer jouw WSPA app</string>
+    <string name="TITLE_REG_CODE_2">Vraag een code aan</string>
+    <string name="TITLE_REG_MAIL_1">WSPA e-mail updates</string>
+    <string name="TITLE_REG_MAIL_2">Direct naar de app!</string>
+    <string name="TITLE_REG_CODE_NEW_1">Code vergeten?</string>
+    <string name="TITLE_REG_CODE_NEW_2">Ook toegang tot de app?</string>
+    <string name="SET_PUSH_STATUS">pushberichten ontvangen</string>
+    <string name="SET_PUSH_ALGEMEEN">Algemeen</string>
+    <string name="SET_PUSH_HUISDIEREN">Huis- &amp; zwerfdieren</string>
+    <string name="SET_PUSH_RAMPEN">Dieren in het wild</string>
+    <string name="SET_PUSH_VEE">Dieren in rampen</string>
+    <string name="SET_PUSH_WILD">Dieren in de landbouw</string>
+    <string name="SET_PUSH_SOUNDS">Geluid pushberichten</string>
+    <string name="SET_PUSH_STANDART">Standaard ringtone</string>
+    <string name="SOUND_NAME_1">Beer</string>
+    <string name="SOUND_NAME_2">Hond</string>
+    <string name="SOUND_NAME_3">Olifant</string>
+    <string name="SOUND_NAME_4">Kip</string>
+    <string name="SOUND_NAME_5">Koe</string>
+    <string name="ERROR_OFFLINE">De applicatie is gesloten voor onderhoud</string>
+    <string name="ERROR_CODE_BLOCKED">Uw code is geblokkeerd</string>
+    <string name="error_config">Please set the %1$s constant and recompile the app.</string>
+    <string name="already_registered">Device is already registered on server.</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$d pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="TOAST_MAIL_CONG">Dank voor het inschrijven.</string>
+    <string name="TOAST_CODE_CHECKING">Uw code wordt gecontroleerd</string>
+    <string name="DIALOG_SHAR_CAPTION">Delen met vrienden</string>
+    <string name="DIALOG_BTN_CANCEL">annuleren</string>
+    <string name="DIALOG_FB">Facebook</string>
+    <string name="DIALOG_TW">Twitter</string>
+    <string name="DIALOG_GP">Google +</string>
+    <string name="SHARE_TWITTER_INFO">Ben jij net als ik dierenliefhebber? Blijf dan op de hoogte via de WSPA World Animal News app! Download hier. http://welkombijwspa.nl/app</string>
+    <string name="TEXT_REG_CODE_1_ERROR_MESSAGE">deze code is onjuist</string>
+    <string name="TEXT_REG_CODE_1_PRIVIEW"><![CDATA[<u>hier</u>]]></string>
+    <string name="TEXT_NIEUWE_CODE_AANVRAGEN">
+<![CDATA[<font color="#ff7324">
+	    <a href="mailto:techniek@wspa.nl">NIEUWE CODE AANVRAGEN »</a>
+	    </font>]]>
+    </string>
+    <string name="TEXT_REG_CODE_1">
+<![CDATA[Voer hier jouw code in. Nog geen code? 
+		Neem contact op met <a href="mailto:techniek@wspa.nl">techniek@wspa.nl</a>. 
+		Nog geen donateur? Bekijk
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		de preview.]]>
+    </string>
+    <string name="TEXT_REG_CODE_2">
+<![CDATA[ Je bent WSPA donateur met een eenmalige donatie van € 9.  
+        <a href="https://donaties.wspa.nl/mobiele_welkombijwspa/mobiele_welkombijwspa_help-dieren-word-donateur">
+        Klik hier</a> om je aan te melden!]]>
+    </string>
+    <string name="TEXT_REG_MAIL_1">
+<![CDATA[Wil je ook per e-mail op de hoogte gebracht worden 
+	    over onze wereldwijde strijd tegen dierenleed? Laat dan hier 
+	    je e-mailadres achter.]]>
+    </string>
+    <string name="TEXT_REG_MAIL_2">
+<![CDATA[Wil je de e-mail updates van WSPA niet ontvangen? 
+	    <font color="#5A5DFF"><u>Klik hier</u></font> 
+	    om direct naar de World Animal News App te gaan.]]>
+    </string>
+    <string name="TEXT_REG_CODE_NEW_1">
+<![CDATA[Je hebt vaker dan vier keer een verkeerde code ingevoerd. 
+	    Klik op ‘code aanvragen’ om een nieuwe code aan te vragen of bel 
+	    ons: 070 - 3142800.]]>
+    </string>
+    <string name="TEXT_REG_CODE_NEW_2">
+<![CDATA[Je bent al WSPA donateur voor een eenmalige donatie van € 9. 
+	    <a href="https://donaties.wspa.nl/algemeen/algemeen_algemeen">
+	    Klik hier</a> om je aan te melden!]]>
+    </string>
+
+    <string name="memButton_text">Memory</string>
+    <string name="newbutt_text">New button</string>
+    <string name="HighScore_text">highscore</string>
+
+    <string-array name="catlist">
+        <item>4x4</item>
+        <item>6x6</item>
+    </string-array>
+    <string-array name="news_cetegory_list">
+        <item>Alle categorieёn</item>
+        <item>Algemeen</item>
+        <item>Huis- &amp; zwerfdieren</item>
+        <item>Dieren in het wild</item>
+        <item>Dieren in rampen</item>
+        <item>Dieren in de landbouw</item>
+    </string-array>
+    <string-array name="news_cetegory_list_cut">
+        <item>Alle categorieёn</item>
+        <item>Algemeen</item>
+        <item>Huis- &amp; zwerf..</item>
+        <item>Dieren..het wild</item>
+        <item>Dieren..rampen</item>
+        <item>Dieren..dbouw</item>
+    </string-array>
+
+    <string name="url_base">https://app.welkombijwspa.nl/api/</string>
+    <string name="difficultyLevelTV">moeilijkheidsgraad</string>
+    <string name="infoBut_text">speluitleg</string>
+    <string name="title_activity_about_game">AboutGameActivity</string>
+    <string name="game_punten_text">PUNTEN:</string>
+    <string name="spel_opn_btn">SPEEL OPNIEUW</string>
+    <string name="deel_je_btn">DEEL JE SCORE</string>
+    <string name="app_set">settings</string>
+    <string name="textHighScoreTV">In dit overzicht staan jouw tien hoogste scores tot nu toe. Speel en deel je score via Facebook.</string>
+    <string name="high_topTV">Highscore top 10</string>
+    <string name="highscore_button">Highscore</string>
+    <string name="speluitleg_button_text">Speluitleg</string>
+    <string name="start_spel_btn_text">START SPEL</string>
+    <string name="sorteer_tv_text">sorteer:</string>
+    <string name="title_activity_news">MainActivity</string>
+    <string name="title_activity_test">MainActivity</string>
+    <string name="title_activity_news_details">MainActivity</string>
+    <string name="news_details_donate_text">
+		<![CDATA[Als donateur kun je altijd de strijd tegen dierenleed een extra steuntje 
+			in de rug geven en nóg meer dieren helpen. Klik 
+			<a href="https://donaties.wspa.nl/mobiele_wspa-app/mobiele_wspa-app_help-dieren-word-donateur">
+			hier</a> om een extra donatie te doen!]]>
+    </string>
+    <string name="title_speluitleg_about_game">Speluitleg</string>
+    <string name="text_speluitleg_about_game">Draai de kaartjes om en maak een match van twee dezelfde dierenplaatjes.
+        Zet een highscore neer en deel hem op Facebook!</string>
+    <string name="title_score_about_game">Score</string>
+    <string name="text_score_about_game">Zoek 2 dezelfde kaarten, elke match levert 100.000 punten op. Komt een kaart niet overeen, dan gaan er 10.000 punten af. Bij meerdere goede matches op rij volgt een bonus.</string>
+    <string name="title_hint_about_game">Hints vragen</string>
+    <string name="text_hint_about_game">Je mag 5 hints inzetten. Elke hint brengt 7.000 punten in mindering.</string>
+    <string name="title_instellingen_about_game">Instellingen</string>
+    <string name="text_instellingen_about_game">Er zijn 2 niveaus in moeilijkheidsgraad. Een spel met 16 dierenplaatjes of een spel met 32
+        dierenplaatjes</string>
+    <string name="GameSettingInstel_text">instellingen</string>
+    <string name="title_game_result">Gefeliciteerd met je highscore!</string>
+
+</resources>

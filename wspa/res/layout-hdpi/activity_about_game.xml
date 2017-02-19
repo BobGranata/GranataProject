@@ -1,0 +1,152 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutGameActivity" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/game_info_bg" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/btn_close"
+        android:height="25dp" />
+
+    <TextView
+        android:id="@+id/titleSpelGameAbout"
+        style="@style/OrangeFont.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="29dp"
+        android:text="@string/title_speluitleg_about_game" />
+
+    <TextView
+        android:id="@+id/textSpelGameAbout"
+        style="@style/NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="58dp"
+        android:text="@string/text_speluitleg_about_game"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/titleScoreGameAbout"
+        style="@style/OrangeFont.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="115dp"
+        android:text="@string/title_score_about_game" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/about_image3" />
+
+    <TextView
+        android:id="@+id/textScoreGameAbout"
+        style="@style/NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="142dp"
+        android:text="@string/text_score_about_game"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/titleHintsGameAbout"
+        style="@style/OrangeFont.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="243dp"
+        android:text="@string/title_hint_about_game" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="268dp"
+        android:src="@drawable/about_image2" />
+
+    <TextView
+        android:id="@+id/textHintsGameAbout"
+        style="@style/NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="270dp"
+        android:text="@string/text_hint_about_game"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/titleInstelGameAbout"
+        style="@style/OrangeFont.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="348dp"
+        android:text="@string/title_instellingen_about_game" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="373dp"
+        android:src="@drawable/about_image1" />
+
+    <TextView
+        android:id="@+id/textInstelGameAbout"
+        style="@style/NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="375dp"
+        android:text="@string/text_instellingen_about_game"
+        android:textSize="12sp" />
+
+</RelativeLayout>

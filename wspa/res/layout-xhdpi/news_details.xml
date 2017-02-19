@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nieuws_bg_gr"
+    tools:context=".NewsDetailsActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="85dp" >
+
+            <TextView
+                android:id="@+id/detailTitleTV"
+                style="@style/OrangeFont.Normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="25dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/detailsDateTV"
+                style="@style/NormalText.Little"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:textColor="@color/GREY"
+                android:textSize="10sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="203dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="8dp" >
+
+                <ImageView
+                    android:id="@+id/newsDetailsBgIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_bg_shadow"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/detailsImageView"
+                    android:layout_width="336dp"
+                    android:layout_height="194dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="4dp"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/youTubeIV"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignLeft="@+id/detailsImageView"
+                    android:layout_alignTop="@+id/detailsImageView"
+                    android:layout_marginLeft="128dp"
+                    android:layout_marginTop="57dp"
+                    android:src="@drawable/youtube_2x"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/detailTextTV"
+                style="@style/NormalText"
+                android:layout_width="299dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="15dp"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/imageViewNewsDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/news_details_wspa_icon" />
+
+            <TextView
+                android:id="@+id/detailDonateTV"
+                style="@style/NormalText.Little"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="18dp"
+                android:text="@string/news_details_donate_text"
+                android:textColor="@color/GREY"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.03"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </ScrollView>
+    
+    <LinearLayout
+    	android:id="@+id/ll_news_details_top_menu"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true" >
+    </LinearLayout>
+    
+	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btn_alpha_news_details"
+            style="@style/AlphaButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+	
+	<LinearLayout
+    	android:id="@+id/ll_news_details_bot_menu"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true" >
+    </LinearLayout>
+    
+</RelativeLayout>
