@@ -11,7 +11,7 @@
         android:src="@drawable/renew_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="155dp" />
+        android:layout_marginTop="125dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +21,9 @@
         style="@style/lsTextStyle"
         android:id="@+id/textView2"
         android:textSize="35dp"
-        android:layout_below="@+id/ivLsLogo"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/ivLsLogo"
+        android:layout_marginTop="167dp"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

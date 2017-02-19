@@ -69,7 +69,7 @@ public class InfComActivity extends AppCompatActivity {
 //                // описания деталей новостей.
                 Intent intent = new Intent(InfComActivity.this,
                         DocCirculActivity.class);
-                String sInfComId = mmListInfCom.get(position).getID();
+                String sInfComId = mmInfComAdapter.getItem(position).getID();
                 intent.putExtra(INFCOM_ID, sInfComId);
                 startActivity(intent);
             }

@@ -45,6 +45,11 @@ public class ListInfComAdapter  extends ArrayAdapter<InfComModel> implements Fil
     }
 
     @Override
+    public InfComModel getItem(int index) {
+        return values.get(index);
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         // ViewHolder буферизирует оценку различных полей шаблона элемента

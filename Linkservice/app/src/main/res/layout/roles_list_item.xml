@@ -4,15 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="94dp" >
 
-    <!--<ImageView-->
-        <!--android:id="@+id/newsItemBgIV"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="63dp"-->
-        <!--android:layout_marginLeft="7dp"-->
-        <!--android:layout_marginTop="12dp"-->
-        <!--android:src="@drawable/icon_bg_shadow"-->
-        <!--android:visibility="visible" />-->
-
     <TextView
         android:id="@+id/tvNameRole"
         style="@style/lsTextStyle"

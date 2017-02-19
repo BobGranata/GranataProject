@@ -3,6 +3,7 @@ package com.bobgranata.linkservice.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
@@ -32,15 +33,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DocCirculActivity extends AppCompatActivity {
+
+    private DocCirculListAdapter adapterDC;
+    private SharedPreferences mSharedSettingsPeriod;
+
     ProgressBar mmDocCirculProgressBar;
     List<DocCirculModel> mmListDocCircul;
     ExpandableListView mmElvDocCirculList;
-    private DocCirculListAdapter adapterDC;
+
     TextView mmTvNoOneDocCircul;
     TextView mmTvCommonCreateDate;
     TextView mmTvDocCirculTitle;
 
     String mmInfComId;
+    int mmChosePeriodIndex;
 
     final String ACCAUNTING = "Accaunting";
     final String REQUIREMENTS = "Requirements"; // Требование
@@ -52,16 +58,22 @@ public class DocCirculActivity extends AppCompatActivity {
     final String PETITION = "Petition"; //Заявление
     final String ALL_TYPE = "all";
 
+    public static final String APP_PREFERENCES = "lssettings";
+    final String PERIOD = "period";
     final int BY_YEAR = 0;
     final int BY_HALF_YEAR = 1;
     final int BY_MONTH = 2;
     final int BY_WEEK = 3;
     final int BY_DAY = 4;
 
+    final String[] mTimePeriodName ={"Год", "6 месяцев", "Месяц", "Неделя", "День"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_circul);
+
+        mSharedSettingsPeriod = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
         mmDocCirculProgressBar = (ProgressBar)findViewById(R.id.docCirculProgressBar);
         mmElvDocCirculList = (ExpandableListView)findViewById(R.id.elvDocCirculList);
@@ -98,16 +110,36 @@ public class DocCirculActivity extends AppCompatActivity {
     public void updateDocCirculList(String sError) {
         mmDocCirculProgressBar.setVisibility(View.INVISIBLE);
 
-        DatabaseHandler db = new DatabaseHandler(this);
+//        DatabaseHandler db = new DatabaseHandler(this);
+//        mmListDocCircul = db.getDocCirculs(mmInfComId);
 
-        mmListDocCircul = db.getDocCirculs(mmInfComId);
+        //---------------------------------------------------------------------
+//        // Запоминаем данные
+//        SharedPreferences.Editor editor = mSharedSettingsPeriod.edit();
+//        editor.putInt(PERIOD, 0);
+//        editor.apply();
+//        //---------------------------------------------------------------------
+        int iPeriod = 0;
+        if (mSharedSettingsPeriod.contains(PERIOD)) {
+            // Получаем строку из настроек
+            iPeriod = mSharedSettingsPeriod.getInt (PERIOD, 0);
+        }
+        updateListByTime(iPeriod);
 
-        if (mmListDocCircul.size() > 0) {
+        Toast.makeText(
+                getApplicationContext(),
+                "Выбранный период: "
+                        + mTimePeriodName[iPeriod],
+                Toast.LENGTH_SHORT).show();
+        //---------------------------------------------------------------------
+
+//        if (mmListDocCircul.size() > 0) {
+        if (mmElvDocCirculList.getCount() > 0) {
 
             // используем кастомный адаптер данных DocCirculListAdapter
-            adapterDC = new DocCirculListAdapter(this, mmListDocCircul);
-
-            mmElvDocCirculList.setAdapter(adapterDC);
+//            adapterDC = new DocCirculListAdapter(this, mmListDocCircul);
+//
+//            mmElvDocCirculList.setAdapter(adapterDC);
             mmElvDocCirculList.setTextFilterEnabled(true);
 
             mmTvCommonCreateDate.setVisibility(View.VISIBLE);
@@ -149,7 +181,6 @@ public class DocCirculActivity extends AppCompatActivity {
 
         List<DocCirculModel> ListByTypeDocCircul = new ArrayList<DocCirculModel>(mmListDocCircul);
         if (mmListDocCircul.size() > 0) {
-//            ACCAUNTING
 
 //            final String REQUIREMENTS = "Requirements"; // Требование
 //            final String REQUEST = "Request"; // Запрос на информационное обслуживание
@@ -200,12 +231,17 @@ public class DocCirculActivity extends AppCompatActivity {
                     ListByTypeDocCircul.remove(docCircul);
                     }
                 }
+            } else if (sType.equals(ACCAUNTING)) {
+                for (DocCirculModel docCircul: mmListDocCircul) {
+                    if (docCircul.getName().contains("Требование") || docCircul.getName().contains("Заявление") ||
+                            docCircul.getName().contains("гарантии") || docCircul.getName().contains("Запрос") ||
+                            docCircul.getName().contains("2-НДФЛ") || docCircul.getName().contains("Обращение") ||
+                            docCircul.getName().contains("Письма") || docCircul.getName().contains("Представление")) {
+                        ListByTypeDocCircul.remove(docCircul);
+                    }
+                }
             }
         }
-
-        // используем кастомный адаптер данных
-//        DocCirculListAdapter adapter = new DocCirculListAdapter(this, ListByTypeDocCircul);
-//        mmElvDocCirculList.setAdapter(adapter);
 
         adapterDC = new DocCirculListAdapter(this, ListByTypeDocCircul);
         mmElvDocCirculList.setAdapter(adapterDC);
@@ -215,10 +251,13 @@ public class DocCirculActivity extends AppCompatActivity {
 
         DatabaseHandler db = new DatabaseHandler(this);
 
-        mmListDocCircul = db.getDocCirculs(mmInfComId);
+//        mmListDocCircul = db.getDocCirculs(mmInfComId);
 
-        List<DocCirculModel> ListByTypeDocCircul = new ArrayList<DocCirculModel>(mmListDocCircul);
-        if (mmListDocCircul.size() > 0) {
+//        List<DocCirculModel> ListByTypeDocCircul = new ArrayList<DocCirculModel>(mmListDocCircul);
+        List<DocCirculModel> ListByTypeDocCircul = new ArrayList<DocCirculModel>();
+
+//        if (mmListDocCircul.size() > 0) {
+        if (true) {
 
             Calendar calendar = Calendar.getInstance();
             Date nowDate = new Date();
@@ -262,36 +301,64 @@ public class DocCirculActivity extends AppCompatActivity {
 
             ListByTypeDocCircul = db.getDocCirculsByDate(sFilterDate, mmInfComId);
         }
-
-        // используем кастомный адаптер данных
-//        DocCirculListAdapter adapter = new DocCirculListAdapter(this, ListByTypeDocCircul);
-//        mmElvDocCirculList.setAdapter(adapter);
-
         adapterDC = new DocCirculListAdapter(this, ListByTypeDocCircul);
         mmElvDocCirculList.setAdapter(adapterDC);
     }
 
     public void SelectTimePeriod() {
-        final String[] mTimePeriodName ={"Год", "6 месяцев", "Месяц", "Неделя", "День"};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Выберите за какой период показывать документы:"); // заголовок для диалога
+        int iPeriod = 0;
+        if (mSharedSettingsPeriod.contains(PERIOD)) {
+            // Получаем строку из настроек
+            iPeriod = mSharedSettingsPeriod.getInt (PERIOD, 0);
+        }
 
-        builder.setItems(mTimePeriodName, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(DocCirculActivity.this);
+        builder.setTitle("Выберите за какой период показывать документы:")
+                .setCancelable(true)
 
-                updateListByTime(item);
+                // добавляем переключатели
+                .setSingleChoiceItems(mTimePeriodName, iPeriod,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int item) {
+                                mmChosePeriodIndex = item;
+                            }
+                        })
 
-                Toast.makeText(getApplicationContext(),
-                        "Выбранный период: " + mTimePeriodName[item],
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setCancelable(false);
+                // Добавляем кнопки
+                .setPositiveButton("Готово",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                updateListByTime(mmChosePeriodIndex);
 
-        AlertDialog alert = builder.create();
-        alert.show();
+                                // Запоминаем данные
+                                SharedPreferences.Editor editor = mSharedSettingsPeriod.edit();
+                                editor.putInt(PERIOD, mmChosePeriodIndex);
+                                editor.apply();
+
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        "Выбранный период: "
+                                                + mTimePeriodName[mmChosePeriodIndex],
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        })
+
+                .setNegativeButton("Отмена",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                dialog.cancel();
+
+                            }
+                        });
+
+        builder.create().show();
     }
 
     @Override
@@ -303,55 +370,54 @@ public class DocCirculActivity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), "Search option selected", Toast.LENGTH_LONG).show();
 //                return true;
             case R.id.filter_id : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
                 SelectTimePeriod();
                 return true;
             }
 
             case R.id.menuTypeFilterPetition : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Заявления", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(PETITION);
                 return true;
             }
 
             case R.id.menuTypeFilterByBankGuarantee : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Банковские гарантии", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(BANK);
                 return true;
             }
 
             case R.id.menuTypeFilterByAccounting : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Отчётность", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(ACCAUNTING);
                 return true;
             }
             case R.id.menuTypeFilterByRequirements : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Требования", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(REQUIREMENTS);
                 return true;
             }
             case R.id.menuTypeFilterByRequest : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Запрос на ИОН", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(REQUEST);
                 return true;
             }
             case R.id.menuTypeFilterByNDFL2 : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "2-НДФЛ", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(NDFL2);
                 return true;
             }
             case R.id.menuTypeFilterByUnform : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Письма абонента", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(UNFORM);
                 return true;
             }
             case R.id.menuTypeFilterByRepresentation : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Представления", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(REPRESENT);
                 return true;
             }
             case R.id.menuFilterByTypeAll : {
-                Toast.makeText(getApplicationContext(), "Filter option selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Все документообороты", Toast.LENGTH_SHORT).show();
                 updateListByTypeDoc(ALL_TYPE);
                 return true;
             }
