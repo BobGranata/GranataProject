@@ -29,8 +29,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(PersonViewHolder holder, int position) {
+        holder.advType.setText(mAdvertsList.get(position).type);
         holder.advTitle.setText(mAdvertsList.get(position).title);
         holder.advDate.setText(mAdvertsList.get(position).date);
+        holder.advPrice.setText(mAdvertsList.get(position).price);
         holder.advPhoto.setImageResource(mAdvertsList.get(position).photoId);
     }
 
@@ -46,15 +48,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
-        TextView advTitle;
-        TextView advDate;
         ImageView advPhoto;
+        TextView advType;
+        TextView advDate;
+        TextView advTitle;
+        TextView advPrice;
+
         PersonViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
-            advTitle = (TextView)itemView.findViewById(R.id.adv_title);
-            advDate = (TextView)itemView.findViewById(R.id.adv_date);
             advPhoto = (ImageView)itemView.findViewById(R.id.adv_photo);
+            advType= (TextView)itemView.findViewById(R.id.adv_type);
+            advDate = (TextView)itemView.findViewById(R.id.adv_date);
+            advTitle = (TextView)itemView.findViewById(R.id.adv_title);
+            advPrice = (TextView)itemView.findViewById(R.id.adv_price);
         }
     }
 }

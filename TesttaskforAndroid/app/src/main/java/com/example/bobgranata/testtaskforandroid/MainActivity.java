@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -27,17 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Adverts> mListAdverts;
 
-    private int lastFirstVisible = -1;
-    private int lastVisibleCount = -1;
-    private int lastItemCount = -1;
-
     int visibleItemCount;
     int totalItemCount;
     int firstVisibleItem;
-    int previousTotal;
-    int currentPage;
 
-    boolean loading;
+    boolean mLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mllm_lay = new LinearLayoutManager(mContext);
         mRvListOfAds.setLayoutManager(mllm_lay);
 
+        mListAdverts = new ArrayList<>();
         initializeData();
 //        mAdapter = new RecyclerViewAdapter(mListAdverts);
 //        mRvListOfAds.setAdapter(mAdapter);
@@ -65,9 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 totalItemCount = mllm_lay.getItemCount();
                 firstVisibleItem = mllm_lay.findFirstVisibleItemPosition();
 
-                if (firstVisibleItem == 4) {
-                    RequestDataTask roleInfComTask = new RequestDataTask();
-                    roleInfComTask.execute("5", String.valueOf(firstVisibleItem));
+                if (!mLoading && (visibleItemCount + firstVisibleItem) >= totalItemCount) {
+                    if (totalItemCount == 400)
+                    Log.e("Total item count", "Error converting result " + String.valueOf(totalItemCount));
+                    mLoading = true;
+                    new RequestDataTask().execute("100", String.valueOf(totalItemCount));
                 }
             }
         });
@@ -82,13 +80,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeData() {
-        new RequestDataTask().execute("5", "0");
+        new RequestDataTask().execute("100", "0");
     }
 
     public void updateList(List<Adverts> updateListAdverts) {
-        mListAdverts = updateListAdverts;
-        mAdapter = new RecyclerViewAdapter(mListAdverts);
-        mRvListOfAds.setAdapter(mAdapter);
+        for(Adverts itemAdv : updateListAdverts) {
+            mListAdverts.add(itemAdv);
+        }
+
+        if (mAdapter == null) {
+            mAdapter = new RecyclerViewAdapter(mListAdverts);
+            mRvListOfAds.setAdapter(mAdapter);
+        }
+
+        mAdapter.notifyDataSetChanged();
+        mLoading = false;
     }
 
     public class RequestDataTask extends AsyncTask<String, Void, String> {
