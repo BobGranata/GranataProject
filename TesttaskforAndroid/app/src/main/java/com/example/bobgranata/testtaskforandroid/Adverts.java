@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by BobGranata on 25.07.2017.
@@ -38,31 +39,28 @@ public class Adverts {
     }
 
     Adverts(String title, String date, String price, String type, String photoUrl) {
+
+        if (title.length() >= 45) {
+            title = title.substring(0, 45);
+            title += "...";
+        }
         this.title = title;
 
-//        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-//        Date pdate = null;
-//        try {
-//            pdate = fmt.parse(date);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//
-//        SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
-//        String sss = fmtOut.format(date);
-//
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");//задаю формат даты
-////        2017-07-26T17:24:02+0700
-//        Date parseDate = null;
-//        try {
-//            parseDate = formatter.parse(date);//создаю дату через
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//        String sss2 = formatter.format(parseDate);
-        this.date = date;
+        if (date != "") {
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+            Date pdate = null;
+            try {
+                pdate = fmt.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
-        this.price = price;
+            SimpleDateFormat fmtOut = new SimpleDateFormat("dd.MM.yyyy");
+            date = fmtOut.format(pdate);
+        }
+
+        this.date = date;
+        this.price = price + " руб.";
 
         if (type.length() > 1) {
             String firstLet = type.substring(0,1).toUpperCase();
