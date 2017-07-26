@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +30,8 @@ public class JSONParser {
     }
 
     public List startParsing() {
-
+        List listAdv = new ArrayList();
+//        List<Adverts>
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(isReqHttpAnswer, "UTF-8"), 8); //"iso-8859-1"
             StringBuilder sb = new StringBuilder();
@@ -43,7 +45,6 @@ public class JSONParser {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
 
-
         // пробуем распарсит JSON объект
         try {
             jObj = new JSONObject(json);
@@ -56,10 +57,12 @@ public class JSONParser {
 
             JSONArray jsonArray = jObj.getJSONArray("adverts");
 
-            String tags = "";
-            String origin = "";
-
             for (int i = 0; i < jsonArray.length(); i++) {
+                Adverts advert = new Adverts();
+
+                String tags = "";
+                String origin = "";
+
                 JSONObject advertsMember = jsonArray.getJSONObject(i);
                 String sTitle = advertsMember.getString("title");
                 String sCost = advertsMember.getString("cost");
@@ -79,22 +82,27 @@ public class JSONParser {
                 JSONObject joShortImagesMain = joShortImages.getJSONObject("main");
                 JSONObject joShortImagesMainLinks = joShortImagesMain.getJSONObject("links");
                 origin = joShortImagesMainLinks.getString("origin");
-            }
 
-            String sAdvTagsTitle = "";
-            JSONObject joLinkedTags = joLinked.getJSONObject("tags");
-            if (tags != "") {
-                JSONObject joLinkedAdvTags = joLinkedTags.getJSONObject(tags);
-                sAdvTagsTitle = joLinkedAdvTags.getString("title");
-            }
-            JSONObject joLinkedUploads = joLinked.getJSONObject("uploads");
-            if (origin != "") {
-                JSONObject joLinkedUploadsOrigin = joLinkedUploads.getJSONObject(origin);
-                joLinkedUploadsOrigin.getString("file_name");
-                joLinkedUploadsOrigin.getString("file_extension");
-                joLinkedUploadsOrigin.getString("domain");
-            }
+                String sAdvTagsTitle = "";
+                String sType = "";
+                JSONObject joLinkedTags = joLinked.getJSONObject("tags");
+                if (tags != "") {
+                    JSONObject joLinkedAdvTags = joLinkedTags.getJSONObject(tags);
+                    sType = joLinkedAdvTags.getString("title");
+                }
+                String sPhotoUrl = "";
+                JSONObject joLinkedUploads = joLinked.getJSONObject("uploads");
+                if (origin != "") {
+                    JSONObject joLinkedUploadsOrigin = joLinkedUploads.getJSONObject(origin);
+                    String sFileName = joLinkedUploadsOrigin.getString("file_name");
+                    String sFileExtension = joLinkedUploadsOrigin.getString("file_extension");
+                    String sDomain = joLinkedUploadsOrigin.getString("domain");
+                    sPhotoUrl = sDomain + sFileName + "." + sFileExtension;
+                }
 
+                listAdv.add(new Adverts(sTitle, sUpdateDate, sCost, sType, sPhotoUrl));
+            }
+        return listAdv;
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }

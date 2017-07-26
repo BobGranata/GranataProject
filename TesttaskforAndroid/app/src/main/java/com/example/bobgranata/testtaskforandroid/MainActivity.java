@@ -1,41 +1,180 @@
 package com.example.bobgranata.testtaskforandroid;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Context mContext;
+
+    RecyclerViewAdapter mAdapter;
+    LinearLayoutManager mllm_lay;
+    RecyclerView mRvListOfAds;
+    ProgressBar mmUpdateListProgressBar;
+
+    private List<Adverts> mListAdverts;
+
+    private int lastFirstVisible = -1;
+    private int lastVisibleCount = -1;
+    private int lastItemCount = -1;
+
+    int visibleItemCount;
+    int totalItemCount;
+    int firstVisibleItem;
+    int previousTotal;
+    int currentPage;
+
+    boolean loading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView rvListOfAds = (RecyclerView)findViewById(R.id.rvListOfAds);
-        rvListOfAds.setHasFixedSize(true);
+        mRvListOfAds = (RecyclerView)findViewById(R.id.rvListOfAds);
+        mmUpdateListProgressBar = (ProgressBar)findViewById(R.id.updateListProgressBar);
+//        mRvListOfAds.setHasFixedSize(true);
 
         mContext = getApplicationContext();
-        LinearLayoutManager llm_lay = new LinearLayoutManager(mContext);
-        rvListOfAds.setLayoutManager(llm_lay);
+        mllm_lay = new LinearLayoutManager(mContext);
+        mRvListOfAds.setLayoutManager(mllm_lay);
 
         initializeData();
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mListAdverts);
-        rvListOfAds.setAdapter(adapter);
+//        mAdapter = new RecyclerViewAdapter(mListAdverts);
+//        mRvListOfAds.setAdapter(mAdapter);
 
-        RequestDataTask roleInfComTask = new RequestDataTask(this);
-        roleInfComTask.execute("1", "0");
+        mRvListOfAds.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                visibleItemCount = recyclerView.getChildCount();
+                totalItemCount = mllm_lay.getItemCount();
+                firstVisibleItem = mllm_lay.findFirstVisibleItemPosition();
+
+                if (firstVisibleItem == 4) {
+                    RequestDataTask roleInfComTask = new RequestDataTask();
+                    roleInfComTask.execute("5", String.valueOf(firstVisibleItem));
+                }
+            }
+        });
     }
 
-    private List<Adverts> mListAdverts;
+    public void ProgressWheelOn() {
+        mmUpdateListProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void ProgressWheelOff() {
+        mmUpdateListProgressBar.setVisibility(View.INVISIBLE);
+    }
+
     private void initializeData() {
-        mListAdverts = new ArrayList<>();
-        mListAdverts.add(new Adverts("Скупка ноутбуков с выездом! 1", "26.07.2017", R.drawable.cat_commandments));
-        mListAdverts.add(new Adverts("Скупка ноутбуков с выездом! 2", "26.07.2017", R.drawable.cat_commandments));
-        mListAdverts.add(new Adverts("Скупка ноутбуков с выездом! 3", "26.07.2017", R.drawable.cat_commandments));
+        new RequestDataTask().execute("5", "0");
+    }
+
+    public void updateList(List<Adverts> updateListAdverts) {
+        mListAdverts = updateListAdverts;
+        mAdapter = new RecyclerViewAdapter(mListAdverts);
+        mRvListOfAds.setAdapter(mAdapter);
+    }
+
+    public class RequestDataTask extends AsyncTask<String, Void, String> {
+        private static final int NET_READ_TIMEOUT_MILLIS = 1000;
+        private static final int NET_CONNECT_TIMEOUT_MILLIS = 1000;
+
+        //http://do.ngs.ru/api/v1/adverts/?include=uploads,tags&fields=short_images,cost,update_date&limit=1&offset=0
+        private final String URL_SERVER = "http://do.ngs.ru/api/v1/adverts/?include=uploads,tags&fields=short_images,cost,update_date";
+        private final String LIMIT = "limit";
+        private final String OFFSET = "offset";
+
+        List<Adverts> mListAdv;
+
+        public RequestDataTask() {
+            super();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            ProgressWheelOn();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String sLimit = params[0];
+            String sOffset = params[1];
+            String url = "";
+
+            url = URL_SERVER + "&" + LIMIT + "=" + sLimit + "&" + OFFSET + "=" + sOffset;
+
+            return loadJSON(url);
+        }
+
+        public String loadJSON(String url) {
+
+            // создаём HTTP запрос
+            InputStream isReqHttpAnswer = null;
+            String sError = "";
+
+            HttpURLConnection connect = null;
+            try {
+                connect = (HttpURLConnection) new URL(url).openConnection();
+                connect.setReadTimeout(NET_READ_TIMEOUT_MILLIS /* milliseconds */);
+                connect.setConnectTimeout(NET_CONNECT_TIMEOUT_MILLIS /* milliseconds */);
+                connect.setRequestMethod("GET");
+                connect.setDoInput(true);
+                // Starts the query
+                connect.connect();
+
+                int status = connect.getResponseCode();
+                switch (status) {
+                    case 200:
+                    case 201: {
+                        isReqHttpAnswer = connect.getInputStream();
+                        JSONParser jParser = new JSONParser(isReqHttpAnswer);
+                        mListAdv = jParser.startParsing();
+                    } break;
+                    default: {
+                        sError = "Ошибка. Сервер ответил не коректно. Код ответа: " + status;
+                    }
+                }
+            } catch (MalformedURLException e) {
+                //код обработки ошибки
+                e.printStackTrace();
+                sError = e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                sError = e.getMessage();
+            }
+
+            return sError;
+        }
+
+        @Override
+        protected void onPostExecute(String sError) {
+            super.onPostExecute(sError);
+
+            ProgressWheelOff();
+            updateList(mListAdv);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+
+        }
     }
 }
