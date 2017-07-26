@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         initializeData();
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(mListAdverts);
         rvListOfAds.setAdapter(adapter);
+
+        RequestDataTask roleInfComTask = new RequestDataTask(this);
+        roleInfComTask.execute("1", "0");
     }
 
     private List<Adverts> mListAdverts;
