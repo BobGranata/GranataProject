@@ -28,9 +28,9 @@
                 android:layout_toEndOf="@+id/adv_type"
                 android:id="@+id/tvDot"
                 android:textSize="10sp"
-                android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/adv_type"
-                android:layout_marginLeft="5dp" />
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp" />
 
             <TextView
                 android:text="TextView"
@@ -50,12 +50,12 @@
                 android:id="@+id/adv_date"
                 android:textSize="10sp"
                 android:text="TextView"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
                 android:layout_alignBaseline="@+id/adv_type"
                 android:layout_alignBottom="@+id/adv_type"
                 android:layout_toRightOf="@+id/tvDot"
-                android:layout_toEndOf="@+id/tvDot" />
+                android:layout_toEndOf="@+id/tvDot"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,18 +66,22 @@
                 android:layout_below="@+id/adv_type"
                 android:layout_alignLeft="@+id/adv_type"
                 android:layout_alignStart="@+id/adv_type"
-                android:layout_marginTop="10dp"
-                 />
+                android:layout_marginTop="5dp"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="normal|bold" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/adv_price"
+                android:textSize="12sp"
                 android:layout_below="@+id/adv_title"
-                android:layout_alignLeft="@+id/adv_type"
-                android:layout_alignStart="@+id/adv_type"
-                android:layout_marginTop="10dp" />
+                android:layout_alignLeft="@+id/adv_title"
+                android:layout_alignStart="@+id/adv_title"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textStyle="normal|bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

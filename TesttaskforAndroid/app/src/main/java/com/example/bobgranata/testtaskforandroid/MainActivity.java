@@ -8,7 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     int firstVisibleItem;
 
     boolean mLoading;
+    private final String LIMIT_COUNT = "10";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +47,15 @@ public class MainActivity extends AppCompatActivity {
         mmUpdateListProgressBar = (ProgressBar)findViewById(R.id.updateListProgressBar);
 //        mRvListOfAds.setHasFixedSize(true);
 
-        mContext = getApplicationContext();
+        mContext = this;//getApplicationContext();
         mllm_lay = new LinearLayoutManager(mContext);
         mRvListOfAds.setLayoutManager(mllm_lay);
 
         mListAdverts = new ArrayList<>();
         initializeData();
-//        mAdapter = new RecyclerViewAdapter(mListAdverts);
-//        mRvListOfAds.setAdapter(mAdapter);
+
+//        ImageView iiiiImageView = (ImageView)findViewById(R.id.imageView);
+//        Picasso.with(mContext).load("http://static.ngs.ru//do//4e1630bd52fb319db216b25a946afc03_1466144470.jpg").into(iiiiImageView);
 
         mRvListOfAds.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -62,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
                 firstVisibleItem = mllm_lay.findFirstVisibleItemPosition();
 
                 if (!mLoading && (visibleItemCount + firstVisibleItem) >= totalItemCount) {
-                    if (totalItemCount == 400)
-                    Log.e("Total item count", "Error converting result " + String.valueOf(totalItemCount));
+//                    if (totalItemCount == 400)
+//                    Log.e("Total item count", "Error converting result " + String.valueOf(totalItemCount));
                     mLoading = true;
-                    new RequestDataTask().execute("100", String.valueOf(totalItemCount));
+                    new RequestDataTask().execute(LIMIT_COUNT, String.valueOf(totalItemCount));
                 }
             }
         });
@@ -80,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeData() {
-        new RequestDataTask().execute("100", "0");
+        new RequestDataTask().execute(LIMIT_COUNT, "0");
     }
 
     public void updateList(List<Adverts> updateListAdverts) {
@@ -89,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (mAdapter == null) {
-            mAdapter = new RecyclerViewAdapter(mListAdverts);
+            mAdapter = new RecyclerViewAdapter(this, mListAdverts);
             mRvListOfAds.setAdapter(mAdapter);
         }
 

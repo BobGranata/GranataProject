@@ -58,8 +58,8 @@ public class JSONParser {
             JSONArray jsonArray = jObj.getJSONArray("adverts");
 
             for (int i = 0; i < jsonArray.length(); i++) {
-                if (i == 13)
-                Log.e("JSON Parser", "Error parsing data " +  String.valueOf(i));
+//                if (i == 13)
+//                Log.e("JSON Parser", "Error parsing data " +  String.valueOf(i));
                 Adverts advert = new Adverts();
 
                 String tags = "";
@@ -73,11 +73,11 @@ public class JSONParser {
 
                 String sCost = "";
                 if (advertsMember.has("cost"))
-                    advertsMember.getString("cost");
+                    sCost = advertsMember.getString("cost");
 
                 String sUpdateDate = "";
                 if (advertsMember.has("update_date"))
-                    advertsMember.getString("update_date");
+                    sUpdateDate = advertsMember.getString("update_date");
 
                 JSONObject joLinksTags = advertsMember.getJSONObject("links");
                 JSONArray jsonArrayTags = joLinksTags.getJSONArray("tags");
