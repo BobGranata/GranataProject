@@ -60,7 +60,13 @@ public class Adverts {
         }
 
         this.date = date;
-        this.price = price + " руб.";
+
+        if (price == "" || price.equals("0")) {
+            price = "цена не указана.";
+        } else {
+            price += " руб.";
+        }
+        this.price = price;
 
         if (type.length() > 1) {
             String firstLet = type.substring(0,1).toUpperCase();
